@@ -1,5 +1,5 @@
 /** 
- * This is the User class
+ * This file contains the User class.
  * @class User
  * @param {string} name - The name of the user
  * @param {string} email - The email of the user

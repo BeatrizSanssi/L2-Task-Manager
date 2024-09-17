@@ -1,5 +1,5 @@
 /** 
- * The Task class
+ * This file is responsible for handling the task.
  * @class Task
  * @param {string} title - The title of the task
  * @param {string} description - The description of the task

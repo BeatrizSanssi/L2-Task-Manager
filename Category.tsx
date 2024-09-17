@@ -1,5 +1,5 @@
 /** 
- * The Category class
+ * This file is responsible for handling the category.
  * @class Category
  * @param {string} name - The name of the category
  * @param {string} description - The description of the category
