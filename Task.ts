@@ -20,14 +20,16 @@ export class Task {
   description: string;
   status: 'not started' | 'in progress' | 'completed';
   deadline: Date;
+  user: string
 
-  constructor(id: string, author: string, title: string, description: string, status: string, deadline: string) {
+  constructor(id: string, author: string, title: string, description: string, status: string, deadline: string, user: string) {
     this.id = id;
     this.author = author;
     this.title = title;
     this.description = description;
     this.status = status as 'not started' | 'in progress' | 'completed';
     this.deadline = new Date(deadline);
+    this.user = user as 'student' | 'teacher';
   }
 
   private generateId(): string {
@@ -35,7 +37,7 @@ export class Task {
   }
 
   assignTask(author: string, user: string): void {
-    this.author = author;
+    this.user = user;
   }
 
   markAsCompleted(): void {

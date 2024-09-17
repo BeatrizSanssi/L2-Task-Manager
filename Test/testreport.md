@@ -1,13 +1,18 @@
 # Test report for Task Management System
 
-## Test case 1: Assign a task for user
+## Test case 1: Create a task and assign it to a user
 
 **What is being tested**:
-Method `assignTask` in class `User` and method `addTask` in class `TaskManager`.
+Method `addTask` in class `Task` and method `addTask` in class `TaskManager`.
 
 **How it is tested**:
 
-1. Create a `Task`with the name `New Assignment`.
-2. Add the task to the `TaskManager`.
-3. Create a user named `Paul`.
-4. Assign the task to Paul.
+1. Create a `Task`with the name `Task 1`.
+2. Create a user named `Paul`.
+3. Assign the task to Paul.
+
+**Expected outcome**:  
+The task should be created and displayed on consol.
+
+**Actual outcome**:  
+Failed
