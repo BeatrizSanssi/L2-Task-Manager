@@ -8,26 +8,12 @@
  *
 */
 
-const category = [
-  {math: 'math'},
-  {science: 'science'},
-  {english: 'english'},
-  {history: 'history'},
-  {geography: 'geography'},
-  {art: 'art'},
-  {music: 'music'},
-  {physicalEducation: 'physicalEducation'},
-  {technology: 'technology'},
-  {religion: 'religion'},
-  {socialStudies: 'socialStudies'},
-]
-
 export class Category {
-  name: string;
+  name: 'math' | 'science' | 'english' | 'history' | 'geography' | 'art' | 'music' | 'physicalEducation' | 'technology' | 'religion' | 'socialStudies';
   description: string;
 
   constructor(name: string, description: string) {
-    this.name = name;
+    this.name = name as 'math' | 'science' | 'english' | 'history' | 'geography' | 'art' | 'music' | 'physicalEducation' | 'technology' | 'religion' | 'socialStudies';
     this.description = description;
   }
 }

@@ -7,12 +7,12 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
 */
 
-const notification = [
-  {upCommigTask: 'upCommigTask'},
-  {newTask: 'newTask'},
-  {taskUpdated: 'taskUpdated'},
-  {taskCompleted: 'taskCompleted'},
-  {newMessage: 'newMessage'}, 
+const type = [
+  {upCommingTask: 'upComming Task'},
+  {newTask: 'new Task'},
+  {taskUpdated: 'task Updated'},
+  {taskCompleted: 'task Completed'},
+  {newMessage: 'new Message'}, 
 ]
 
 export class NotificationSystem {

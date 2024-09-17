@@ -34,6 +34,10 @@ export class Task {
     return Math.random().toString(36).substr(2, 9);
   }
 
+  assignTask(author: string, user: string): void {
+    this.author = author;
+  }
+
   markAsCompleted(): void {
     this.status = 'completed';
   }
