@@ -1,0 +1,20 @@
+{
+  "name": "l2",
+  "version": "1.0.0",
+  "description": "A simple module for handling tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "main"
+  },
+  "keywords": [
+    "task",
+    "plan",
+    "category"
+  ],
+  "author": "Beatriz Sanssi <bs222eh@student.lnu.se>",
+  "license": "MIT"
+}
