@@ -8,6 +8,20 @@
  *
 */
 
+const category = [
+  {math: 'math'},
+  {science: 'science'},
+  {english: 'english'},
+  {history: 'history'},
+  {geography: 'geography'},
+  {art: 'art'},
+  {music: 'music'},
+  {physicalEducation: 'physicalEducation'},
+  {technology: 'technology'},
+  {religion: 'religion'},
+  {socialStudies: 'socialStudies'},
+]
+
 export class Category {
   name: string;
   description: string;

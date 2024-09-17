@@ -9,6 +9,19 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
 */
 
+const task = [
+  {assignment: 'assignment'},
+  {test: 'test'},
+  {project: 'project'},
+  {groupProject: 'groupProject'},
+]
+
+const status = [
+  {notStarted: 'notStarted'},
+  {inProgress: 'inProgress'},
+  {completed: 'completed'},
+]
+
 export class Task {
   title: string;
   description: string;
