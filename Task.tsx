@@ -14,4 +14,11 @@ export class Task {
   description: string;
   status: string;
   deadline: string;
+
+  constructor(title: string, description: string, status: string, deadline: string) {
+    this.title = title;
+    this.description = description;
+    this.status = status;
+    this.deadline = deadline;
+  }
 }
