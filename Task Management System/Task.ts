@@ -3,7 +3,7 @@
  * @class Task
  * @param {string} id - The id of the task
  * @param {string} author - The author of the task
- * @param {string} type - The type of the task
+ * @param {string} taskType - The type of the task
  * @param {string} title - The title of the task
  * @param {string} description - The description of the task
  * @param {string} status - The status of the task
@@ -16,7 +16,7 @@ import { Category } from './Category'
 export class Task {
   taskId: string
   category: string
-  type: 'Assignment' | 'Test' | 'Project' | 'Group project'
+  taskType: 'Assignment' | 'Test' | 'Project' | 'Group project'
   author: string
   title: string
   description: string
@@ -27,16 +27,17 @@ export class Task {
   constructor(
     taskId: string,
     category: string,
-    type: string,
+    taskType: string,
     author: string,
     title: string,
     description: string,
     deadline: Date,
     status: string,
+    createdAt: Date
   ) {
     this.taskId = taskId;
     this.category = category;
-    this.type = type as 'Assignment' | 'Test' | 'Project' | 'Group project';
+    this.taskType = taskType as 'Assignment' | 'Test' | 'Project' | 'Group project';
     this.author = author;
     this.title = title;
     this.description = description;
@@ -44,14 +45,6 @@ export class Task {
     this.status = status as 'not started' | 'in progress' | 'completed';
     this.createdAt = new Date()
   }
-
-  // private generateTaskId(): string {
-  //   return Math.random().toString(36).substr(2, 9);
-  // }
-
-  // assignTask(author: string, user: string): void {
-  //   this.user = user;
-  // }
 
   // Check if the student has started the task
   hasStarted(): boolean {
@@ -99,8 +92,8 @@ export class Task {
   }
 
   // Add a type to the task
-  addType(type: 'Assignment' | 'Test' | 'Project' | 'Group project'): void {
-    this.type = type
+  addType(taskType: 'Assignment' | 'Test' | 'Project' | 'Group project'): void {
+    this.taskType = taskType
   }
 
   // Add an author to the task
@@ -127,23 +120,6 @@ export class Task {
   addStatus(status: 'not started' | 'in progress' | 'completed'): void {
     this.status = status
   }
-
-
-  // updateType(newType: string): void {
-  //   this.type = newType as 'Assignment' | 'Test' | 'Project' | 'Group project';
-  // }
-
-  // updateTitle(newTitle: string): void {
-  //   this.title = newTitle;
-  // }
-
-  // updateDescription(newDescription: string): void {
-  //   this.description = newDescription;
-  // }
-
-  // updateDeadline(newDeadline: string): void {
-  //   this.deadline = new Date(newDeadline);
-  // }
 
   toString(): string {
     return `Task: ${this.title} - ${this.description} - ${this.status} - ${this.deadline}`

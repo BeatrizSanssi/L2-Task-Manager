@@ -32,22 +32,14 @@ export class TaskManager {
     let newTask = new Task(
       task.taskId,
       task.category,
-      task.type,
+      task.taskType,
       task.author,
       task.title,
       task.description,
       task.deadline,
       task.status,
+      task.createdAt
     )
-
-    // newTask.addTaskId(newTask.taskId)
-    // newTask.addCategory(newTask.category)
-    // newTask.addType(newTask.type)
-    // newTask.addAuthor(newTask.author)
-    // newTask.addTitle(newTask.title)
-    // newTask.addDescription(newTask.description)
-    // newTask.addDeadline(newTask.deadline)
-    // newTask.addStatus(newTask.status)
 
     this.tasks.push(newTask)
 
@@ -72,34 +64,8 @@ export class TaskManager {
   addStudent(student: User): void {
       this.student = student
     }
-  
-  // // Get the task as a student
-  // getTask(task: Task): void {
-  //   if (this.student) {
-  //     this.assignedTasks.push(task)
 
-  //     console.log(`${this.student} has received the task: ${task.title}`)
-  //   } else {
-  //     console.log('Only students can receive tasks')
-  //   }
-  // }
-
-  // updateType(newType: string): void {
-  //   this.type = newType;
-  // }
-
-  // updateTitle(newTitle: string): void {
-  //   this.title = newTitle;
-  // }
-
-  // updateDescription(newDescription: string): void {
-  //   this.description = newDescription;
-  // }
-
-  // updateDeadline(newDeadline: string): void {
-  //   this.deadline = newDeadline;
-  // }
-
+  // Delete a task  
   removeTask(taskId: string): void {
     const removedTask = this.tasks.find(task => task.taskId === taskId)
     if (removedTask) {
@@ -109,6 +75,7 @@ export class TaskManager {
     this.tasks = this.tasks.filter(task => task.taskId !== taskId)
   }
 
+  // Update a task
   updateTask(taskId: string, updatedTask: Task): void {
     this.tasks = this.tasks.map(task => task.taskId === taskId ? updatedTask : task)
 
@@ -134,7 +101,7 @@ export class TaskManager {
       recipient: student.name,
       taskTitle: task.title,
       category: task.category,
-      type: task.type,
+      type: task.taskType,
       deadline: task.deadline,
     });
   }
@@ -161,12 +128,6 @@ export class TaskManager {
       this.notifyStudent(this.student, `Deadline approaching for ${task.title}`, 'deadline-approaching', task)
     }
   }
-  // assignTask(taskId: string, user: User): void {
-  //   const task = this.tasks.find(task => task.id === taskId);
-  //   task.author = user.name;
-  // }
-
-
 
   listTasks(): void {
     this.tasks.forEach((task) => console.log(task))

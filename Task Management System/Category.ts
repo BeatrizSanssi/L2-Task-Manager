@@ -10,7 +10,6 @@
 
 export class Category {
   name: string;
-  // description: string;
 
   constructor(name: 'Math' | 'Science' | 'English' | 'History' | 'Geography' | 'Art' | 'Music' | 'Physical Education' | 'Technology' | 'Religion' | 'Social Studies') {
     this.name = name;
@@ -19,7 +18,4 @@ export class Category {
   toString(): string {
     return this.name;
   }
-  // addCategory(name: 'math' | 'science' | 'english' | 'history' | 'geography' | 'art' | 'music' | 'physicalEducation' | 'technology' | 'religion' | 'socialStudies'): void {
-  //   this.name = name;
-  // }
 }

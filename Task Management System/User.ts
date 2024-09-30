@@ -28,11 +28,6 @@ export class User {
 
   // Create a new user
   async createUser(password: string): Promise<void> {
-  // async createUser(name: string, email: string, password: string, role: 'student' | 'teacher'): Promise<void> {
-  //   this.userId = uuidv4();
-  //   this.name = name;
-  //   this.email = email;
-  //   this.role = role;
 
     // Hash the password
     const saltRounds = 10;
@@ -47,7 +42,6 @@ export class User {
 
   // Assign a role to the user
   assignRole(role: 'student' | 'teacher'): void {
-    // this.userId = userId;
     this.role = role;
   }
 }

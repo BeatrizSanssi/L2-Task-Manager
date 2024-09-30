@@ -5,9 +5,9 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
-import { TaskManager } from '../module/TaskManager'
-import { Task } from '../module/Task'
-import { User } from '../module/User'
+import { TaskManager } from '../Task Management System/TaskManager'
+import { Task } from '../Task Management System/Task'
+import { User } from '../Task Management System/User'
 
 describe('TaskManager', () => {
   let taskManager: TaskManager
@@ -29,13 +29,14 @@ describe('TaskManager', () => {
         'This is the first task',
         new Date('2024-10-01'),
         'not started',
+        new Date('Created at 2024-09-01'),
       )
     })
 
     it('should create a new task', () => {
       expect(task.taskId).toBe('1')
       expect(task.category).toBe('English')
-      expect(task.type).toBe('Assignment')
+      expect(task.taskType).toBe('Assignment')
       expect(task.author).toBe('Teacher')
       expect(task.title).toBe('Task 1')
       expect(task.description).toBe('This is the first task')
@@ -54,8 +55,9 @@ describe('TaskManager', () => {
       'Teacher',
       'Task 1',
       'This is the first task',
-      new Date('2024-10-01'),
+      new Date('Deadline: 2024-10-01'),
       'not started',
+      new Date('Created at 2024-09-01'),
     )
     const author = 'Teacher'
     const teacher = new User(

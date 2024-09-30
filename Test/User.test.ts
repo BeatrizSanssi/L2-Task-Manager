@@ -5,7 +5,7 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
-import { User } from '../module/User'
+import { User } from '../Task Management System/User'
 
 describe('User', () => {
   let user: User
@@ -38,15 +38,5 @@ describe('User', () => {
     user.assignRole('student')
     expect(user.role).toBe('student')
     console.log('User role assigned!', user.role)
-  });
-    // expect(user.userId).toBeDefined()
-    // expect(user.name).toBe('Paul')
-    // expect(user.email).toBe('paul.1@student.lnu.se')
-    // expect(user.role).toBe('student')
-    //   userId: user.userId,
-    //   name: 'Paul',
-    //   email: 'paul.1@student.lnu.se',
-    //   role: 'student'
-    // });
-    // console.log('New user created!', user)
+  })
 })

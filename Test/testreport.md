@@ -101,4 +101,3 @@ Console log the task with the correct variables
 The author should be able to assign a task to a student.
 
 **Actual outcome**:
-
