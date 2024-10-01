@@ -5,9 +5,6 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
 */
 
-export { Category } from './Category';
-export { NotificationSystem } from './NotificationSystem';
-export { Task } from './Task';
 export { TaskManager } from './TaskManager';
-export { User } from './User';
+
 

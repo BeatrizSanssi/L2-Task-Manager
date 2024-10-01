@@ -1,8 +1,8 @@
 /** 
  * This file is responsible for handling the notification system.
+ * It manages notification types and sends notifications with specific details.
+ * 
  * @class NotificationSystem
- * @param {string} message - The message to be displayed
- * @param {string} type - The type of the message
  * @version 1.0.0
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
 */
@@ -21,6 +21,13 @@ export class NotificationSystem {
   message: string;
   type: keyof typeof messageTypes;
 
+  /**
+   * Initializes a new notification instance.
+   * 
+   * @param {string} message - The message to be sent as part of the notification.
+   * @param {keyof typeof messageTypes} type - The type of the notification.
+   * @throws {Error} - If the message is empty or if the notification type is invalid.
+   */
   constructor(message: string, type: keyof typeof messageTypes) {
     // Check if the message is empty
     if (!message || message.trim().length === 0) {
@@ -36,6 +43,17 @@ export class NotificationSystem {
     this.type = type;
   }
 
+  /**
+   * Sends a notification to a recipient with task details.
+   * 
+   * @param {object} notificationDetails - An object containing task-specific details.
+   * @param {string} notificationDetails.recipient - The recipient of the notification.
+   * @param {string} notificationDetails.taskTitle - The title of the task.
+   * @param {string} notificationDetails.category - The category of the task.
+   * @param {string} notificationDetails.taskType - The type of the task.
+   * @param {Date} notificationDetails.deadline - The deadline for the task.
+   * @throws {Error} - If any of the provided details are invalid.
+   */
   sendNotification(notificationDetails: { recipient: string; taskTitle: string; category: string; taskType: string; deadline: Date }): void {
     // Validate the notification details
     if (!notificationDetails.recipient || notificationDetails.recipient.trim().length === 0) {
@@ -67,6 +85,11 @@ export class NotificationSystem {
     console.log(`Message: ${this.message}`)
   }
 
+   /**
+   * Returns the type of the notification as a string.
+   * 
+   * @returns {string} - The type of the notification.
+   */
   toString(): string {
     return this.type;
   }
