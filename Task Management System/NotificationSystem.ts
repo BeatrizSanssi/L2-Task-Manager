@@ -7,13 +7,6 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
 */
 
-// const type = [
-//   {upCommingTask: 'Up Comming Task'},
-//   {newTask: 'New Task'},
-//   {taskUpdated: 'Task Updated'},
-//   {taskCompleted: 'Task Completed'},
-//   {newMessage: 'New Message'}, 
-// ]
 export const messageTypes = {
   upCommingTask: 'Reminder: You have an upcoming task deadline approaching.',
   newTask: 'A new task has been assigned to you.',

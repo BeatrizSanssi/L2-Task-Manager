@@ -20,9 +20,24 @@ const notificationSystem = new NotificationSystem('New Task:', 'newTask')
 console.log('Notification system created:', notificationSystem)
 
 // Create a category
+try { 
 const category = new Category('Math')
-// const category = new Category('English', 'Write an essay about "Lord of the Flies". The essay must have a minimum of 500 words.');
-console.log('Category created:', category)
+console.log(category.toString());
+
+// Try to change the category to another
+category.setCategoryName('Science');
+console.log('Category updated to:', category.toString());
+
+// Try setting an invalid category
+const invalidCategory = new Category('InvalidCategory'); 
+} catch (error) {
+  if (error instanceof Error) {
+    console.error(error.message);
+  } else {
+    console.error('An unknown error occurred');
+  }
+}
+
 
 // Create tasks
 const task1 = new Task(
@@ -60,7 +75,6 @@ taskManager.assignTaskToStudent(
   user,
 )
 console.log('Task assigned to student:', user.name)
-// console.log('Task manager created:', taskManager);
 
 // Add tasks to the task manager
 taskManager.createTask(task1)

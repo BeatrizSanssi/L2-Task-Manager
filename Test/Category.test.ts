@@ -24,4 +24,23 @@ describe('Category', () => {
     expect(category.toString()).toBe('Math')
     console.log('Category toString works correctly!', category.toString())
   })
+
+  it('should update the category name to a valid name', () => {
+    category.setCategoryName('Science')
+    expect(category.name).toBe('Science')
+    console.log('Category name updated successfully to Science', category)
+  })
+
+  it('should throw an error when trying to create an invalid category', () => {
+    expect(() => {
+      new Category('InvalidCategory')
+    }).toThrow('Invalid category name.')
+  })
+
+  it('should throw an error when creating a category with an empty name', () => {
+    expect(() => {
+      new Category('')
+    }).toThrow('Category name cannot be empty.')
+  })
+
 })

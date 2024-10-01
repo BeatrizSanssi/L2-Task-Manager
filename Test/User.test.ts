@@ -11,7 +11,6 @@ describe('User', () => {
   let user: User
 
   beforeEach(() => {
-    // Changed to before each
     user = new User('Paul', 'paul.1@student.lnu.se', 'student')
   })
 
@@ -21,7 +20,7 @@ describe('User', () => {
   })
 
   it('should create a new user and hash the password correctly', async () => {
-    await user.createUser('mySecurePassword')
+    await user.createPassword('mySecurePassword')
 
     // Check if the password is hashed
     const isPasswordCorrect = await user.checkPassword('mySecurePassword')

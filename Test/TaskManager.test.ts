@@ -77,7 +77,6 @@ describe('TaskManager', () => {
     expect(task.author).toBe('Maria Johnson')
 
     // Check if the student has been assigned the task
-    // expect(task.student).toBe('Paul')
     expect(taskManager.student).toEqual(student);
 
     // Check if the task has been created

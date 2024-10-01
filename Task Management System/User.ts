@@ -26,20 +26,37 @@ export class User {
     this.role = role;
   }
 
-  // Create a new user
-  async createUser(password: string): Promise<void> {
+   // Validate password (at least 8 characters)
+  private isValidPassword(password: string): boolean {
+    return password.length >= 8;
+  }
+
+  // Create a new password for the user
+  async createPassword(password: string): Promise<void> {
+    if (!this.isValidPassword(password)) {
+      throw new Error('Password must be at least 8 characters long.');
+    }
 
     // Hash the password
-    const saltRounds = 10;
-    this.hashedPassword = await bcrypt.hash(password, saltRounds);
-
-    this.assignRole(this.role);
-    console.log(`User ${this.name} with role ${this.role} has been created with a hashed password.`);
+    try {
+      const saltRounds = 10;
+      this.hashedPassword = await bcrypt.hash(password, saltRounds);
+      this.assignRole(this.role);
+      console.log(`User ${this.name} with role ${this.role} has been created with a hashed password.`);
+    } catch (error) {
+      console.error('Error hashing password:', error);
+      throw new Error('Error creating user.');
+    }
   }
 
   // Verify the password of the user
   async checkPassword(password: string): Promise<boolean> {
-    return await bcrypt.compare(password, this.hashedPassword);
+    try {
+      return await bcrypt.compare(password, this.hashedPassword);
+    } catch (error) {
+      console.error('Error comparing password:', error);
+      return false;
+    }
   }
 
   // Assign a role to the user
