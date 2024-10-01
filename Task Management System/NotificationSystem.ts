@@ -22,11 +22,43 @@ export class NotificationSystem {
   type: keyof typeof messageTypes;
 
   constructor(message: string, type: keyof typeof messageTypes) {
+    // Check if the message is empty
+    if (!message || message.trim().length === 0) {
+      throw new Error('Message cannot be empty.');
+    }
+
+    // Check if the notification type is valid
+    if (!Object.keys(messageTypes).includes(type)) {
+      throw new Error(`Invalid notification type: ${type}. Please provide a valid notification type.`);
+    }
+
     this.message = message;
     this.type = type;
   }
 
   sendNotification(notificationDetails: { recipient: string; taskTitle: string; category: string; taskType: string; deadline: Date }): void {
+    // Validate the notification details
+    if (!notificationDetails.recipient || notificationDetails.recipient.trim().length === 0) {
+      throw new Error('Recipient cannot be empty.');
+    }
+
+    if (!notificationDetails.taskTitle || notificationDetails.taskTitle.trim().length === 0) {
+      throw new Error('Task title cannot be empty.');
+    }
+
+    if (!notificationDetails.category || notificationDetails.category.trim().length === 0) {
+      throw new Error('Category cannot be empty.');
+    }
+
+    if (!notificationDetails.taskType || notificationDetails.taskType.trim().length === 0) {
+      throw new Error('Task type cannot be empty.');
+    }
+
+    if (!notificationDetails.deadline || isNaN(notificationDetails.deadline.getTime())) {
+      throw new Error('Invalid deadline. Please provide a valid date.');
+    }
+
+    // Send the notification
     console.log(`Notification sent to ${notificationDetails.recipient}:`)
     console.log(`Task: ${notificationDetails.taskTitle}`)
     console.log(`Category: ${notificationDetails.category}`)

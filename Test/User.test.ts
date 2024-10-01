@@ -11,7 +11,7 @@ describe('User', () => {
   let user: User
 
   beforeEach(() => {
-    user = new User('Paul', 'paul.1@student.lnu.se', 'student')
+    user = new User('Paul Hanson', 'paul.hanson1@student.lnu.se', 'student')
   })
 
   it('should generate an id when creating a new user', () => {
