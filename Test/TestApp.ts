@@ -1,5 +1,5 @@
 /**
- * This is a test file
+ * This file demonstrates how to use the Task Management System.
  * @class TestApp
  * @version 1.0.0
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
@@ -73,19 +73,6 @@ const task1 = new Task(
 
 console.log('Task created:', task1)
 
-const task2 = new Task(
-  '2',
-  'Biology',
-  'Test',
-  'Bernard Smith',
-  'Test 1',
-  'Test about the human body',
-  new Date('Deadline: 2024-10-08'),
-  'not started',
-  new Date('Created at 2024-09-03'),
-)
-console.log('Task created:', task2)
-
 // Create a task manager
 const taskManager = new TaskManager()
 taskManager.assignTaskToStudent(
@@ -95,12 +82,8 @@ taskManager.assignTaskToStudent(
 )
 console.log('Task assigned to student:', user.name)
 
-// Add tasks to the task manager
+// Add task to the task manager
 taskManager.createTask(task1)
 taskManager.notifyStudent(user, 'New task added', 'newTask', task1 )
-
-// // Assign task to user
-// user.assignTask(task1);
-// user.assignTask(task2);
 
 console.log(taskManager.listTasks())

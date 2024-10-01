@@ -80,7 +80,8 @@ describe('TaskManager', () => {
     expect(taskManager.student).toEqual(student);
 
     // Check if the task has been created
-    expect(task).toEqual(task)
+    // expect(task).toEqual(task)
+    expect(taskManager.tasks[0]).toEqual(task);
 
     console.log('Task assigned to student!', task)
   })
