@@ -14,6 +14,49 @@ The **Task Management System** is a simple module that helps manage tasks for st
 - **Task Deletion**: Remove tasks and notify users when tasks are deleted.
 - **Status management**: Track the status of tasks (not started, in progress, completed).
 
+## Public API
+
+The following classes and methods are intended for use by developers integrating this module:
+
+- **TaskManager**: Responsible for managing tasks, assigning tasks to users, and handling notifications.
+ • createTask(): Creates a new task.
+ • assignTaskToStudent(): Assigns a task to a student.
+ • updateTask(): Updates an existing task.
+ • removeTask(): Removes a task by its ID.
+ • notifyStudent(): Sends notifications to a student regarding tasks.
+ • remindAboutUnstartedTask(): Sends a reminder if a task hasn’t been started.
+ • checkDeadlineApproaching(): Sends a reminder if a task deadline is approaching.
+
+- **User**: Represents a student or teacher.
+ • createPassword(): Creates and hashes a user’s password.
+ • checkPassword(): Verifies a password.
+
+- **Task**: Represents a task with fields like ID, category, type, title, description, deadline, and status.
+
+- **Category**: Represents the task’s category (e.g., English, Math).
+
+- **NotificationSystem**: Handles task notifications.
+ • sendNotification(): Sends a task-related notification to a user.
+
+Internal API (Not for public use)
+
+The following methods and properties are internal and should not be accessed or modified directly by users of the module. These are encapsulated for internal logic only:
+
+ • TaskManager:
+ • private assignedTasks: Tracks internally assigned tasks, not for direct user manipulation.
+ • Task:
+ • private validateNotEmpty(): Validates that required fields are not empty.
+ • private validateTaskType(): Validates that the task type is valid.
+ • private markAsCompleted(): Internally updates task status to ‘Completed’.
+ • private markAsInProgress(): Internally updates task status to ‘In Progress’.
+ • private markAsNotStarted(): Internally updates task status to ‘Not Started’.
+ • Category:
+ • private validateCategoryName(): Validates that the category name is valid.
+ • private static validCategories: Stores valid category names.
+ • User:
+ • private isValidPassword(): Validates that the user’s password meets the required length.
+ • private hashedPassword: The user’s password stored securely, inaccessible from outside the class.
+
 ## Testing
 
 To test the module, you can run the following command: npm run test
