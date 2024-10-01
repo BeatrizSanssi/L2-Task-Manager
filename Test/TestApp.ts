@@ -15,6 +15,26 @@ import { TaskManager } from '../Task Management System/TaskManager'
 const user = new User('Paul', 'paul@student.lnu.se', 'student')
 console.log('User created:', user)
 
+// Create a password for the user
+async function setupUserPassword() {
+  try {
+    await user.createPassword('mySecurePassword')
+    console.log('Password has been set for:', user.name)
+
+    // Check if the password is correct
+    const isPasswordCorrect = await user.checkPassword('mySecurePassword')
+    console.log('Is the password correct?', isPasswordCorrect)
+
+    // Test with incorrect password
+    const isPasswordIncorrect = await user.checkPassword('wrongPassword')
+    console.log('Is the wrong password correct?', isPasswordIncorrect)
+  } catch (error) {
+    console.error('Error setting password:', error)
+  }
+}
+
+setupUserPassword()
+
 // Create a notification system
 const notificationSystem = new NotificationSystem('New Task:', 'newTask')
 console.log('Notification system created:', notificationSystem)
@@ -37,7 +57,6 @@ const invalidCategory = new Category('InvalidCategory');
     console.error('An unknown error occurred');
   }
 }
-
 
 // Create tasks
 const task1 = new Task(

@@ -19,7 +19,7 @@ describe('User', () => {
     console.log('User id generated!', user.userId)
   })
 
-  it('should create a new user and hash the password correctly', async () => {
+  it('should create a new password and hash it correctly', async () => {
     await user.createPassword('mySecurePassword')
 
     // Check if the password is hashed
@@ -31,6 +31,13 @@ describe('User', () => {
     expect(isPasswordIncorrect).toBe(false)
 
     console.log('The password is hashed correctly for', user.name)
+  })
+
+  it('should throw an error if the password is less than 8 characters', async () => {
+    await expect(user.createPassword('short')).rejects.toThrow(
+      'Password must be at least 8 characters long.'
+    )
+    console.log('Password validation works correctly!')
   })
 
   it('should assign a role to the user', () => {
