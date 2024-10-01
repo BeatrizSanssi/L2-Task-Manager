@@ -61,21 +61,26 @@ describe('TaskManager', () => {
     )
     const author = 'Teacher'
     const teacher = new User(
-      // 'teacherId',
-      'Miss Davis',
-      'miss.davis@lnu.se',
+      'Maria Johnson',
+      'maria.johnson@lnu.se',
       'teacher',
     )
     const student = new User(
-      // 'studentId',
       'Paul',
       'paul.1@student.lnu.se',
       'student',
     )
 
     taskManager.assignTaskToStudent(task, teacher, student)
-    expect(task.author).toBe('Teacher')
-    expect(student).toBe('Student')
+
+    // Check if the tasks author is the teacher
+    expect(task.author).toBe('Maria Johnson')
+
+    // Check if the student has been assigned the task
+    // expect(task.student).toBe('Paul')
+    expect(taskManager.student).toEqual(student);
+
+    // Check if the task has been created
     expect(task).toEqual(task)
 
     console.log('Task assigned to student!', task)

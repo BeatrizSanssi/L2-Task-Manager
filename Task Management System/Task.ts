@@ -67,57 +67,57 @@ export class Task {
   }
 
   // Change the tasks status to completed
-  markAsCompleted(): void {
+  private markAsCompleted(): void {
     this.status = 'completed'
   }
 
   // Change the tasks status to in progress
-  markAsInProgress(): void {
+  private markAsInProgress(): void {
     this.status = 'in progress'
   }
 
   // The taks initial status is not started
-  markAsNotStarted(): void {
+  private markAsNotStarted(): void {
     this.status = 'not started'
   }
 
   // Add an id to the task
-  addTaskId(taskId: string): void {
+  private addTaskId(taskId: string): void {
     this.taskId = taskId
   }
 
   // Add a category to the task
-  addCategory(category: string): void {
+  private addCategory(category: string): void {
     this.category = category
   }
 
   // Add a type to the task
-  addType(taskType: 'Assignment' | 'Test' | 'Project' | 'Group project'): void {
+  private addType(taskType: 'Assignment' | 'Test' | 'Project' | 'Group project'): void {
     this.taskType = taskType
   }
 
   // Add an author to the task
-  addAuthor(author: string): void {
+  private addAuthor(author: string): void {
     this.author = author
   }
 
   // Add a title to the task
-  addTitle(title: string): void {
+  private addTitle(title: string): void {
     this.title = title
   }
 
   // Add a description to the task
-  addDescription(description: string): void {
+  private addDescription(description: string): void {
     this.description = description
   }
 
   // Add a deadline to the task
-  addDeadline(deadline: Date): void {
+  private addDeadline(deadline: Date): void {
     this.deadline = deadline
   }
 
   // Add a status to the task
-  addStatus(status: 'not started' | 'in progress' | 'completed'): void {
+  private addStatus(status: 'not started' | 'in progress' | 'completed'): void {
     this.status = status
   }
 

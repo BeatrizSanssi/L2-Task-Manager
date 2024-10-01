@@ -7,29 +7,42 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
 */
 
-const type = [
-  {upCommingTask: 'upComming Task'},
-  {newTask: 'new Task'},
-  {taskUpdated: 'task Updated'},
-  {taskCompleted: 'task Completed'},
-  {newMessage: 'new Message'}, 
-]
+// const type = [
+//   {upCommingTask: 'Up Comming Task'},
+//   {newTask: 'New Task'},
+//   {taskUpdated: 'Task Updated'},
+//   {taskCompleted: 'Task Completed'},
+//   {newMessage: 'New Message'}, 
+// ]
+export const messageTypes = {
+  upCommingTask: 'Reminder: You have an upcoming task deadline approaching.',
+  newTask: 'A new task has been assigned to you.',
+  taskUpdated: 'A task you’re working on has been updated.',
+  taskDeleted: 'A task you’re working on has been deleted.',
+  taskReminder: 'Reminder: You have a task you haven´t started working on.',
+  taskCompleted: 'A task you were assigned has been completed.',
+  newMessage: 'You have received a new message!'
+}
 
 export class NotificationSystem {
   message: string;
-  type: string;
+  type: keyof typeof messageTypes;
 
-  constructor(message: string, type: string) {
+  constructor(message: string, type: keyof typeof messageTypes) {
     this.message = message;
     this.type = type;
   }
 
-  sendNotification(notificationDetails: { recipient: string; taskTitle: string; category: string; type: string; deadline: Date }): void {
+  sendNotification(notificationDetails: { recipient: string; taskTitle: string; category: string; taskType: string; deadline: Date }): void {
     console.log(`Notification sent to ${notificationDetails.recipient}:`)
     console.log(`Task: ${notificationDetails.taskTitle}`)
     console.log(`Category: ${notificationDetails.category}`)
-    console.log(`Type: ${notificationDetails.type}`)
-    console.log(`Deadline: ${notificationDetails.deadline}`)
+    console.log(`Type: ${notificationDetails.taskType}`)
+    console.log(`Deadline: ${notificationDetails.deadline.toISOString()}`) 
     console.log(`Message: ${this.message}`)
+  }
+
+  toString(): string {
+    return this.type;
   }
 }

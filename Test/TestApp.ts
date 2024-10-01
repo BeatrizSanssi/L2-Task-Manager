@@ -16,7 +16,7 @@ const user = new User('Paul', 'paul@student.lnu.se', 'student')
 console.log('User created:', user)
 
 // Create a notification system
-const notificationSystem = new NotificationSystem('New task', 'Assignment')
+const notificationSystem = new NotificationSystem('New Task:', 'newTask')
 console.log('Notification system created:', notificationSystem)
 
 // Create a category
@@ -64,7 +64,7 @@ console.log('Task assigned to student:', user.name)
 
 // Add tasks to the task manager
 taskManager.createTask(task1)
-taskManager.addNotification('New task added', 'newTask')
+taskManager.notifyStudent(user, 'New task added', 'newTask', task1 )
 
 // // Assign task to user
 // user.assignTask(task1);

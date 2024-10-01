@@ -2,12 +2,12 @@
  * This file is responsible for handling the notification system.
  * @class NotificationSystem
  * @param {string} message - The message to be displayed
- * @param {string} type - The type of the message
+ * @param {string} notificationType - The type of the message
  * @version 1.0.0
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
 */
 
-const type = [
+const notificationType = [
   {upCommingTask: 'upComming Task'},
   {newTask: 'new Task'},
   {taskUpdated: 'task Updated'},
@@ -17,10 +17,10 @@ const type = [
 
 export class NotificationSystem {
   message: string;
-  type: string;
+  notificationType: string;
 
-  constructor(message: string, type: string) {
+  constructor(message: string, notificationType: string) {
     this.message = message;
-    this.type = type;
+    this.notificationType = notificationType;
   }
 }

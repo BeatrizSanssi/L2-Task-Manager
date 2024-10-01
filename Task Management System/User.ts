@@ -32,7 +32,9 @@ export class User {
     // Hash the password
     const saltRounds = 10;
     this.hashedPassword = await bcrypt.hash(password, saltRounds);
-    console.log(`User ${this.name} created with hashed password.`);
+
+    this.assignRole(this.role);
+    console.log(`User ${this.name} with role ${this.role} has been created with a hashed password.`);
   }
 
   // Verify the password of the user

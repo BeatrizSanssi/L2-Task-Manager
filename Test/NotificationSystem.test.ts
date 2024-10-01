@@ -29,7 +29,7 @@ describe('NotificationSystem', () => {
       recipient: 'John Doe',
       taskTitle: 'Math Assignment',
       category: 'Math',
-      type: 'Assignment',
+      taskType: 'Assignment',
       deadline: new Date('2024-10-01'),
     }
 
