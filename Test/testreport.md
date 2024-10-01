@@ -1,103 +1,168 @@
 # Test report for Task Management System
 
-## Test case 1: Create a task and assign it to a user
+## Test case 1: Create a task and assign it to a student
 
 **What is being tested**:
-Method `createTask` in class `TaskManager`.
+Methods `createTask` and `assignTaskToStudent` in class `TaskManager`.
 
 **How it is tested**:
 
-Create a task...
+1. Create a task with the following attributes:
+ • ID: 1
+ • Category: English
+ • Type: Assignment
+ • Author: Maria Johnson
+ • Title: Task 1
+ • Description: This is the first task
+ • Deadline: 2024-10-01
+ • Status: Not started
+ • Created at: 2024-09-01
 
-1. With the id `1`
-2. Witht the category `english`
-3. With the type `assignment`
-4. With the title `Task 1`.
-5. With the author set to `Teacher`
-6. With the description `This is the first task`
-7. With the deadline set to `2024-10-01`
-8. With the status `not started`
-Console log the task with the correct variables
+2. Assign the task to a student and log the task details.
+
+3. Console log the task with the correct attributes and and the student it is assigned to.
 
 **Expected outcome**:  
-The task should be created and displayed on consol.
+The task should be created and assigned to the student. The created task should be displayed in the console along the assigned student.
 
-**Actual outcome**:  
-Failed. The order and number of the variables were not correct
+**Actual outcome**(before fixing):
+Test failed. The order and number of variables were incorrect.
 
 **After correcting**:
-The task was created! console.log
-  New test task created! Task {
-    taskId: '1',
-    category: 'English',
-    type: 'Assignment',
-    author: 'Teacher',
-    title: 'Task 1',
-    description: 'This is the first task',
-    deadline: 2024-10-01T00:00:00.000Z,
-    status: 'not started'
-  }
+Task was successfully created and assigned to the student.
+
+![Task Created and Assigned To Student Test Result](./ReportPictures/newTaskCreatedAndAssigned.png)
 
 ## Test case 2: Create a user
 
 **What is being tested**:
-Method `createUser` and `assignRole` in class `User`
+Methods `createPassword` and `assignRole` in class `User`
 
 **How it is tested**:
 
-Create a User...
+ 1. Create a password for a user with the following attributes:
+ • Name: Paul
+ • Email: <paul.1@student.lnu.se>
+ • Role: student
 
-1. With a generated id
-2. With the name `Paul`.
-3. With the email set to `paul.1@student.lnu.se`
-4. With the role set to `student`
+ 2. Hash the password.
 
-Console log the user with the correct variables
+ 3. Assign the role student to the user.
+
+ 4. Console log the user with the correct variables
 
 **Expected outcome**:  
-The user should be created and displayed on consol. The users password should be hashed. The user should be assigned a role.
+The user should be created with a unique ID, a hashed password, and the role should be assigned.
 
 **Actual outcome**:
-  console.log
-    User id generated! 92e71ea9-f0d3-47a6-8425-ed4e9cc7faa0
+All tests passed. The user was created successfully, the password was hashed, and the role was assigned.
 
-      at Object.<anonymous> (Test/User.test.ts:20:13)
+![User Assigned To Student Test Result](./ReportPictures/createPasswordAndAssignRole.png)
 
-  console.log
-    User Paul created with hashed password.
-
-      at User.<anonymous> (module/User.ts:40:13)
-
-  console.log
-    The password is hashed correctly for Paul
-
-      at Test/User.test.ts:34:13
-
-  console.log
-    User role assigned! student
-
-      at Object.<anonymous> (Test/User.test.ts:40:13)
-
-## Test case 3: Assign a task to a user
+## Test case 3: Send notification to student
 
 **What is being tested**:
-Method `assignTaskToStudent` and `getTask` in class `TaskManager`
+Methods `notifyStudent` in class `TaskManager`
 
 **How it is tested**:
 
-Create a task...
+Create a Notification System and...
 
-1. With the id `1`
-2. Witht the category `english`
-3. With the type `assignment`
-4. With the title `Task 1`.
-5. With the author set to `Teacher`
-6. With the description `This is the first task`
-7. With the deadline set to `2024-10-01`
-8. With the status `not started`
-Console log the task with the correct variables
+1. Send a notification with the correct details
+• Recipient: 'Paul Hanson',
+• Task Title: 'Math Assignment',
+• Category: 'Math',
+• Task Type: 'Assignment',
+• Deadline: new Date('2024-11-01'),
+• Created At: new Date('2024-10-01'),
+
+2. Console log the notification with the correct details
 
 **Expected outcome**:  
-The author should be able to assign a task to a student.
+The notfication should include the correct detail and be sent to the corresponding user.
 
 **Actual outcome**:
+All the tests passed and the notification was successfully sent with the correct details.
+
+![Student Notification About New Task Test Result](./ReportPictures/notification.png)
+
+## Test case 4: Update and Remove Tasks
+
+**What is being tested**:
+Methods `removeTask`and `updateTask` in class `TaskManager`
+
+**How it is tested**:
+
+1. Use the unique task id to find task.
+
+2. Update the task from:
+• Task Id: '1',
+• Task Category: 'English',
+• Task Type: 'Assignment',
+• Author: 'Maria Johnson',
+• Title: 'Task 1',
+• Description: 'This is the first task',
+• Deadline: new Date('2024-11-01'),
+• Task Status: 'Not started',
+• Created At: new Date('2024-10-01'),
+to:
+• Task Id: '1',
+• Task Category: 'Math',
+• Task Type: 'Test',
+• Author: 'Maria Johnson',
+• Title: 'Updated Task 1',
+• Description: 'Updated description',
+• Deadline: new Date('2024-11-01'),
+• Task Type: 'Not started',
+• Created At: new Date('2024-10-01'),
+
+3. Delete a task using the unique task id.
+
+**Actual outcome**:
+
+The tasks were updated and removed.
+
+![Created Task Test Result](./ReportPictures/createdTask.png)
+![Updated Task Test Result](./ReportPictures/updatedTask.png)
+![Deleted Task Test Result](./ReportPictures/deletedTask.png)
+
+## Test case 5: Remind a student about an unstarted task
+
+**What is being tested**:
+Method `remindAboutUnstartedTask` in class `TaskManager`
+
+**How it is tested**:
+
+1. Create a task with a created at date older than one week.
+2. Make sure the task does not have status `In progress`or `Completed`.
+3. Call `remindAboutUnstartedTask`and make sure a reminder notification is sent to the student.
+
+**Expected outcome**:
+
+The student should get a reminder notification about the task through the notification system.
+
+**Actual outcome**:
+The tests passed. The student recieved a remeinder about the task.
+
+![Remind The Student About Unstarted Task Test Result](./ReportPictures/reminderMessage.png)
+
+## Test case 6: Remind a student about an up comming deadline
+
+**What is being tested**:
+Method `checkDeadlineApproaching` in class `TaskManager`
+
+**How it is tested**:
+
+1. Create a task created two days before deadline.
+2. Make sure the task does not have status `Completed`.
+3. Call `checkDeadlineApproaching` and make sure a reminder notification is sent to the student.
+
+**Expected outcome**:
+
+The student should get a reminder notification about the tasks deadline.
+
+**Actual outcome**:
+
+The test passes. The student gets a notification about the up comming deadline.
+
+![Remind The Student About An Up Comming Deadline Test Result](./ReportPictures/upcommingDeadline.png)

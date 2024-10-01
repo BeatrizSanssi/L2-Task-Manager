@@ -19,7 +19,7 @@ describe('Task', () => {
       'Task 1',
       'This is the first task',
       new Date('2024-10-01'),
-      'not started',
+      'Not started',
       new Date('2024-09-01'),
     )
   })
@@ -33,7 +33,7 @@ describe('Task', () => {
     expect(task.description).toBe('This is the first task')
     // Check only the date part of the deadline
     expect(task.deadline.toISOString().split('T')[0]).toBe('2024-10-01')
-    expect(task.status).toBe('not started')
+    expect(task.status).toBe('Not started')
     // Check only the date part of the createdAt date
     expect(task.createdAt.toISOString().split('T')[0]).toBe('2024-09-01')
 
@@ -50,7 +50,7 @@ describe('Task', () => {
         'Task 2',
         'This is the second task',
         new Date('2024-11-01'),
-        'not started',
+        'Not started',
         new Date('2024-09-02'),
       )
     }).toThrow('Invalid task type: InvalidType. Valid task types are: Assignment, Test, Project, Group project')
@@ -71,7 +71,7 @@ describe('Task', () => {
           'invalid status',
           new Date('2024-09-03'),
         )
-      }).toThrow('Invalid status: invalid status. Valid statuses are: not started, in progress, completed')
+      }).toThrow('Invalid status: invalid status. Valid statuses are: Not started, In progress, Completed')
 
       console.log('Task status validation works correctly!')
     })
@@ -86,7 +86,7 @@ describe('Task', () => {
         '',
         'This task has no title',
         new Date('2024-10-15'),
-        'not started',
+        'Not started',
         new Date('2024-09-05'),
       )
     }).toThrow('Title cannot be empty.')
@@ -102,7 +102,7 @@ describe('Task', () => {
         'Task 5',
         'This task has an invalid deadline',
         new Date('invalid-date'),
-        'not started',
+        'Not started',
         new Date('2024-09-06'),
       )
     }).toThrow('Invalid deadline. Please provide a valid date.')

@@ -41,22 +41,11 @@ export class TaskManager {
       throw new Error("Student or teacher must be set before creating a task.");
     }
 
-    if (this.teacher.role !== 'teacher') {
+    if (this.teacher.role !== 'Teacher') {
       throw new Error("Only teachers can create tasks.");
     }
 
     console.log("Creating task for student:", this.student);
-    // let newTask = new Task(
-    //   task.taskId,
-    //   task.category,
-    //   task.taskType,
-    //   task.author,
-    //   task.title,
-    //   task.description,
-    //   task.deadline,
-    //   task.status,
-    //   task.createdAt
-    // )
 
     // Check if the task already exists, if so throw an error
     if (this.tasks.find(t => t.taskId === task.taskId)) {
@@ -80,7 +69,7 @@ export class TaskManager {
    * @throws Will throw an error if the user assigning the task is not a teacher.
    */
   assignTaskToStudent(task: Task, teacher: User, student: User): void {
-    if (teacher.role !== 'teacher') {
+    if (teacher.role !== 'Teacher') {
       throw new Error('Only teachers can assign tasks.');
     }
     this.teacher = teacher; 
@@ -180,13 +169,14 @@ export class TaskManager {
    * 
    * @param {Task} task - The task associated with the notification.
    */
-  remindTask(task: Task): void {
+  remindAboutUnstartedTask(task: Task): void {
     const oneWeek = 7 * 24 * 60 * 60 * 1000
     const now = new Date().getTime()
     const taskCreationTime = new Date(task.createdAt).getTime()
 
     if (!task.hasStarted() && (now - taskCreationTime) > oneWeek) {
-      this.notifyStudent(this.student, `Reminder: You haven't started your task ${task.title}`, 'taskReminder', task)
+      const reminderMessage = messageTypes['taskReminder'];
+      this.notifyStudent(this.student, reminderMessage, 'taskReminder', task);
     }
   }
 

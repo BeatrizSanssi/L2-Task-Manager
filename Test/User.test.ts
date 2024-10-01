@@ -11,7 +11,7 @@ describe('User', () => {
   let user: User
 
   beforeEach(() => {
-    user = new User('Paul Hanson', 'paul.hanson1@student.lnu.se', 'student')
+    user = new User('Paul Hanson', 'paul.hanson1@student.lnu.se', 'Student')
   })
 
   it('should generate an id when creating a new user', () => {
@@ -41,8 +41,8 @@ describe('User', () => {
   })
 
   it('should assign a role to the user', () => {
-    user.assignRole('student')
-    expect(user.role).toBe('student')
+    user.assignRole('Student')
+    expect(user.role).toBe('Student')
     console.log('User role assigned!', user.role)
   })
 })

@@ -14,7 +14,7 @@ export class User {
   userId: string;
   name: string;
   email: string;
-  role: 'student' | 'teacher';
+  role: 'Student' | 'Teacher';
   private hashedPassword!: string; // The hashed password marked as 'being set later'
 
 
@@ -24,9 +24,9 @@ export class User {
    * 
    * @param {string} name - The name of the user.
    * @param {string} email - The email of the user.
-   * @param {'student' | 'teacher'} role - The role of the user, either 'student' or 'teacher'.
+   * @param {'Student' | 'Teacher'} role - The role of the user, either 'Student' or 'Teacher'.
    */
-  constructor(name: string, email: string, role: 'student' | 'teacher') {
+  constructor(name: string, email: string, role: 'Student' | 'Teacher') {
     this.userId = uuidv4(); // Generate a random id
     this.name = name;
     this.email = email;
@@ -88,7 +88,7 @@ export class User {
    * 
    * @param {'student' | 'teacher'} role - The role to assign to the user.
    */
-  assignRole(role: 'student' | 'teacher'): void {
+  assignRole(role: 'Student' | 'Teacher'): void {
     this.role = role;
   }
 }

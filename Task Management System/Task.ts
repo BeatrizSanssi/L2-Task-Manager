@@ -16,11 +16,11 @@ export class Task {
   title!: string
   description!: string
   deadline!: Date
-  status!: 'not started' | 'in progress' | 'completed'
+  status!: 'Not started' | 'In progress' | 'Completed'
   createdAt: Date
 
   private static validTaskTypes = ['Assignment', 'Test', 'Project', 'Group project']
-  private static validStatuses = ['not started', 'in progress', 'completed']
+  private static validStatuses = ['Not started', 'In progress', 'Completed']
 
   /**
    * The constructor initializes a new task and validates its fields.
@@ -53,7 +53,7 @@ export class Task {
     this.addTitle(title);
     this.addDescription(description);
     this.addDeadline(deadline);
-    this.addStatus(status as 'not started' | 'in progress' | 'completed');
+    this.addStatus(status as 'Not started' | 'In progress' | 'Completed');
   
     this.createdAt = createdAt;
   }
@@ -110,12 +110,12 @@ export class Task {
 
   /** 
    * Determines whether the task has been started by the student.
-   * Returns true if the status is 'in progress' or 'completed'.
+   * Returns true if the status is 'In progress' or 'Completed'.
    * 
    * @returns {boolean} - True if the student has started the task, false otherwise.
   */
   public hasStarted(): boolean {
-    return this.status === 'in progress' || this.status === 'completed';
+    return this.status === 'In progress' || this.status === 'Completed';
   }
 
   /** 
@@ -124,7 +124,7 @@ export class Task {
    * @returns {boolean} - True if the student has completed the task, false otherwise.
   */
   public hasCompleted(): boolean {
-    return this.status === 'completed';
+    return this.status === 'Completed';
     // Mark the task as completed
     this.markAsCompleted();
   }
@@ -135,7 +135,7 @@ export class Task {
    * @returns {boolean} - True if the student is currently working on the task, false otherwise.
   */
   public inProgress(): boolean {
-    return this.status === 'in progress';
+    return this.status === 'In progress';
     // Mark the task as in progress
     this.markAsInProgress();
   }
@@ -146,7 +146,7 @@ export class Task {
    * @returns {boolean} - True if the student has not started the task, false otherwise.
   */
   public notStarted(): boolean {
-    return this.status === 'not started';
+    return this.status === 'Not started';
     // Mark the task as not started
     this.markAsNotStarted();
   }
@@ -155,21 +155,21 @@ export class Task {
    * Marks the task as completed by updating the status.
   */
   private markAsCompleted(): void {
-    this.status = 'completed'
+    this.status = 'Completed'
   }
 
   /** 
    * Marks the task as in progress by updating the status.
   */
   private markAsInProgress(): void {
-    this.status = 'in progress'
+    this.status = 'In progress'
   }
 
   /**
    * Marks the task as not started by updating the status.
    */
   private markAsNotStarted(): void {
-    this.status = 'not started'
+    this.status = 'Not started'
   }
 
   /** 
@@ -247,7 +247,7 @@ export class Task {
    * 
    * @param {string} status - The status to add to the task.
    */
-  private addStatus(status: 'not started' | 'in progress' | 'completed'): void {
+  private addStatus(status: 'Not started' | 'In progress' | 'Completed'): void {
     this.validateStatus(status);
     this.status = status
   }

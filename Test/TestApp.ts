@@ -12,7 +12,7 @@ import { Category } from '../Task Management System/Category'
 import { TaskManager } from '../Task Management System/TaskManager'
 
 // Create a new user
-const user = new User('Paul Hanson', 'paul.hanson1@student.lnu.se', 'student')
+const user = new User('Paul Hanson', 'paul.hanson1@student.lnu.se', 'Student')
 console.log('User created:', user)
 
 // Create a password for the user
@@ -77,7 +77,7 @@ console.log('Task created:', task1)
 const taskManager = new TaskManager()
 taskManager.assignTaskToStudent(
   task1,
-  new User('Maria Johnson', 'maria.Johnson@lnu.com', 'teacher'),
+  new User('Maria Johnson', 'maria.Johnson@lnu.com', 'Teacher'),
   user,
 )
 console.log('Task assigned to student:', user.name)
