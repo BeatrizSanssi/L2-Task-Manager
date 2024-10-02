@@ -139,7 +139,6 @@ Methods `removeTask`and `updateTask` in class `TaskManager`
 
 The tasks were updated and removed.
 
-![Created Task Test Result](./ReportPictures/createdTask.png)
 ![Updated Task Test Result](./ReportPictures/updatedTask.png)
 ![Deleted Task Test Result](./ReportPictures/deletedTask.png)
 
