@@ -5,7 +5,7 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
-import { NotificationSystem } from '../Task Management System/NotificationSystem'
+import { NotificationSystem } from '../src/NotificationSystem'
 
 describe('NotificationSystem', () => {
   let notificationSystem: NotificationSystem

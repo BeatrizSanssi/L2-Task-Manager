@@ -12,5 +12,6 @@
     "rootDir": "./",
     "sourceMap": true
   },
-  "include": ["**/*.ts"]
+  "include": ["src/**/*.ts", "Test/**/*.ts", "demo/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -5,7 +5,7 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
-import { Category } from '../Task Management System/Category'
+import { Category } from '../src/Category'
 
 describe('Category', () => {
   let category: Category

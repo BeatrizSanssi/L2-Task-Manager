@@ -5,9 +5,9 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
-import { TaskManager } from '../Task Management System/TaskManager'
-import { Task } from '../Task Management System/Task'
-import { User } from '../Task Management System/User'
+import { TaskManager } from '../src/TaskManager'
+import { Task } from '../src/Task'
+import { User } from '../src/User'
 
 describe('TaskManager', () => {
   let taskManager: TaskManager
@@ -187,7 +187,7 @@ describe('TaskManager', () => {
       'Not started',
       new Date('2024-09-01'),
     )
-    const author = 'Teacher'
+
     const teacher = new User('Maria Johnson', 'maria.johnson@lnu.se', 'Teacher')
     const student = new User(
       'Paul Hanson',
@@ -211,6 +211,7 @@ describe('TaskManager', () => {
     taskManager.updateTask(task.taskId, updatedTask)
 
     // Check if the task has been updated
+    expect(task.author).toBe('Maria Johnson')
     expect(taskManager.tasks[0].category).toBe('Math')
     expect(taskManager.tasks[0].title).toBe('Updated Task 1')
     expect(taskManager.tasks[0].status).toBe('In progress')
@@ -229,7 +230,7 @@ describe('TaskManager', () => {
       'Not started',
       new Date('2024-09-01'),
     )
-    const author = 'Teacher'
+
     const teacher = new User('Maria Johnson', 'maria.johnson@lnu.se', 'Teacher')
     const student = new User(
       'Paul Hanson',
@@ -237,6 +238,7 @@ describe('TaskManager', () => {
       'Student',
     )
     taskManager.assignTaskToStudent(task, teacher, student)
+    expect(task.author).toBe('Maria Johnson')
 
     // Check if the task exists before removing it
     expect(taskManager.tasks.length).toBe(1)

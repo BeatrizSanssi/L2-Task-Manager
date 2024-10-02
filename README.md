@@ -18,44 +18,345 @@ The **Task Management System** is a simple module that helps manage tasks for st
 
 The following classes and methods are intended for use by developers integrating this module:
 
-- **TaskManager**: Responsible for managing tasks, assigning tasks to users, and handling notifications.
-  • createTask(): Creates a new task.
-  • assignTaskToStudent(): Assigns a task to a student.
-  • updateTask(): Updates an existing task.
-  • removeTask(): Removes a task by its ID.
-  • notifyStudent(): Sends notifications to a student regarding tasks.
-  • remindAboutUnstartedTask(): Sends a reminder if a task hasn’t been started.
-  • checkDeadlineApproaching(): Sends a reminder if a task deadline is approaching.
+### TaskManager
 
-- **User**: Represents a student or teacher.
-  • createPassword(): Creates and hashes a user’s password.
-  • checkPassword(): Verifies a password.
+Responsible for managing tasks, assigning tasks to users, and handling notifications.
 
-- **Task**: Represents a task with fields like ID, category, type, title, description, deadline, and status.
+#### TaskManager Methods
 
-- **Category**: Represents the task’s category (e.g., English, Math).
+- **createTask(task: Task): void**  
+  Creates a new task.
 
-- **NotificationSystem**: Handles task notifications.
-  • sendNotification(): Sends a task-related notification to a user.
+Parameters:
 
-Internal API (Not for public use)
+- `task` (Task): The task object containing task details (ID, category, title, etc.).
+
+- **assignTaskToStudent(task: Task, teacher: User, student: User): void**  
+  Assigns a task to a student and records the teacher assigning it.
+
+  Parameters:
+
+  - `task` (Task): The task to assign.
+  - `teacher` (User): The teacher assigning the task.
+  - `student` (User): The student to whom the task is assigned.
+
+- **updateTask(taskId: string, updatedTask: Task): void**  
+  Updates a task using its id.
+
+Parameters:
+
+- `taskId` (string): The tasks id.
+- `updatedTask` (Task): The updated task containing task details (ID, category, title, etc.).
+
+- **removeTask(taskId: string): void**  
+  Removes a task using its id.
+
+Parameters:
+
+- `taskId` (string): The tasks id.
+
+- **listTasks(): void**  
+  Lists all existing tasks.
+
+Parameters:
+
+- **notifyStudent(student: User, notificationType: string, task: Task): void**  
+  Sends a notification to a student regarding a task.
+
+  Parameters:
+
+  - `student` (User): The student to notify.
+  - `notificationType` (string): The type of notification (e.g., `newTask`, `taskReminder` etc.).
+  - `task` (Task): The task related to the notification.
+
+- **addStudent(student: User): void**  
+  Adds a student to the task manager.
+
+  Parameters:
+
+  - `student` (User): The student to add.
+
+- **remindAboutUnstartedTask(task: Task): void**  
+  Sends a remainder notification to the student regarding an unstarted task.
+
+  Parameters:
+
+  - `task` (Task): The task related to the remainder notification.
+
+- **checkDeadlineApproaching(task: Task): void**  
+  Checks if the deadline for the task is approaching and sends a reminder if necessary.
+
+  Parameters:
+
+  - `task` (Task): The task to check.
+
+### User
+
+Represents a student or teacher.
+
+#### User Methods
+
+- **createPassword(password: string): Promise< void >**
+  Creates and hashes the users password.
+
+Parameters:
+
+- `password` (string): The password to create.
+
+- **checkPassword(password: string): Promise< void >**  
+  Verifies whether the provided password matches the stored hashed password.
+
+Parameters:
+
+- `password` (string): The password to verify.
+
+- **assignRole(role: 'Student' | 'Teacher'): void**  
+  Assigns a role to the user.
+
+Parameters:
+
+- `role` ('student' | 'teacher'): The password to verify
+
+### Task
+
+Represents a task with fields like ID, category, type, title, description, deadline, and status.
+
+#### Task Methods
+
+- **hasStarted(): boolean**  
+  Determines whether the task has been started by the student.
+
+Parameters:
+
+- **hasCompleted(): boolean**  
+  Determines whether the task has been completed.
+
+Parameters:
+
+- **inProgress(): boolean**  
+  Determines whether the task is currently in progress.
+
+Parameters:
+
+- **notStarted(): boolean**  
+  Determines whether the task has not been started.
+
+Parameters:
+
+- **toString(): string**  
+  Returns a string representation of the task.
+
+Parameters:
+
+### Category
+
+Represents the task’s category (e.g., English, Math).
+
+#### Category Methods
+
+- **setCategoryName(newName: string): void**  
+  Sets the category name to a new valid category.
+
+Parameters:
+
+- `newName` (string): The catagory name to set.
+
+- **toString(): string**  
+  Returns the category name as a string.
+
+Parameters:
+
+### Notification System
+
+Handles task notifications.
+
+#### Notification System Methods
+
+- **setNotificationType(type: string): void**  
+  Updates the notification type and corresponding message.
+
+Parameters:
+
+- `type` (string): The new notification type.
+
+- **sendNotification(notificationDetails: {
+  recipient: string
+  taskTitle: string
+  category: string
+  taskType: string
+  deadline: Date
+  }): void**  
+  Sends a notification to a recipient with task details.
+
+Parameters:
+
+- `recipient` (string): The new notification type.
+- `taskTitle` (string): The new notification type.
+- `category` (string): The new notification type.
+- `taskType` (string): The new notification type.
+- `deadline` (string): The new notification type.
+
+- **toString(): string**  
+  Returns the type of the notification as a string.
+
+Parameters:
+
+## Internal API (Not for public use)
 
 The following methods and properties are internal and should not be accessed or modified directly by users of the module. These are encapsulated for internal logic only:
 
-• TaskManager:
-• private assignedTasks: Tracks internally assigned tasks, not for direct user manipulation.
-• Task:
-• private validateNotEmpty(): Validates that required fields are not empty.
-• private validateTaskType(): Validates that the task type is valid.
-• private markAsCompleted(): Internally updates task status to ‘Completed’.
-• private markAsInProgress(): Internally updates task status to ‘In Progress’.
-• private markAsNotStarted(): Internally updates task status to ‘Not Started’.
-• Category:
-• private validateCategoryName(): Validates that the category name is valid.
-• private static validCategories: Stores valid category names.
-• User:
-• private isValidPassword(): Validates that the user’s password meets the required length.
-• private hashedPassword: The user’s password stored securely, inaccessible from outside the class.
+### TaskManager (Internal)
+
+Handles task notifications.
+
+#### TaskManager Private Methods
+
+- **private assignedTasks: Task[]**  
+  Tracks internally assigned tasks, not for direct user manipulation..
+
+Parameters:
+
+- `type` (string): The new notification type.
+
+### User (Internal)
+
+#### User Private Methods
+
+- **private isValidPassword(password: string): boolean**  
+  Validates that the provided password meets the minimum length requirement.
+
+Parameters:
+
+- `password` (string): The password to validate.
+
+### Task (Internal)
+
+#### Task Private Methods
+
+- **private validateNotEmpty(value: string, fieldName: string): void**  
+  Validates that the provided password meets the minimum length requirement.
+
+Parameters:
+
+- `value` (string): The value to check.
+- `fieldName` (string): The name of the field being validated.
+
+- **private validateTaskType(taskType: string): void**  
+  Validates that the provided task type is one of the allowed types.
+
+Parameters:
+
+- `taskType` (string): The task type to check.
+
+- **private validateStatus(status: string): void**  
+  Validates that the task status is one of the allowed statuses.
+
+Parameters:
+
+- `status` (string): The status to validate.
+- `fieldName` (string): The name of the field being validated.
+
+- **private validateDeadline(deadline: Date): void**  
+  Validates that the provided deadline is a valid date object.
+
+Parameters:
+
+- `deadline` (Date): The deadline to validate.
+
+- **private markAsCompleted(): void**  
+  Marks the task as completed by updating the status.
+
+Parameters:
+
+- **private markAsInProgress(): void**  
+  Marks the task as in progress by updating the status.
+
+Parameters:
+
+- **private markAsNotStarted(): void**  
+  Marks the task as not started by updating the status.
+
+Parameters:
+
+- **private addTaskId(taskId: string): void**  
+  Adds a task ID to the task after ensuring it is not empty.
+
+Parameters:
+
+- `taskId` (string): The unique task ID to add.
+
+- **private addCategory(category: string): void**  
+  Adds a category to the task after validating it is not empty.
+
+Parameters:
+
+- `category` (string): The category to add to the task.
+
+- **private addType(
+  taskType: 'Assignment' | 'Test' | 'Project' | 'Group project',
+  ): void**  
+  Adds a task type to the task after validating it is not empty.
+
+Parameters:
+
+- `taskType` (string): The task type to add to the task.
+
+- **private addAuthor(author: string): void**  
+  Adds an author to the task after validating it is not empty.
+
+Parameters:
+
+- `author` (string): The author to add to the task.
+
+- **private addTitle(title: string): void**  
+  Adds a title to the task after validating it is not empty.
+
+Parameters:
+
+- `title` (string): The title to add to the task.
+
+- **private addDescription(description: string): void**  
+  Adds a description to the task after validating it is not empty.
+
+Parameters:
+
+- `description` (string): The description to add to the task.
+
+- **private addDeadline(deadline: Date): void**  
+  Adds a deadline to the task after validating it is not empty or undefined.
+
+Parameters:
+
+- `deadline` (Date): The deadline to add to the task.
+
+- **private addStatus(status: 'Not started' | 'In progress' | 'Completed'): void**  
+  Adds a status to the task after validating it is not empty.
+
+Parameters:
+
+- `status` (string): The status to add to the task.
+
+### Category (Internal)
+
+#### Category Private Methods
+
+- **private validateCategoryName(name: string): string**  
+  Validates that the provided password meets the minimum length requirement.
+
+Parameters:
+
+- `name` (string): The name of the category to validate.
+
+### Notification System (Internal)
+
+#### Notification System Private Methods
+
+- **private getMessage(type: string): string**  
+  Returns the message associated with the notification type.
+
+Parameters:
+
+- `type` (string): The type of notification.
 
 ## Testing
 
@@ -120,12 +421,17 @@ npm install task-management-system
 
 ### Usage
 
-To see a full example of how to use the Task Management System, check out the TestApp file included in the repository. This file demonstrates the following functionalities:
+To see a full example of how to use the Task Management System, check out the TestApp file included in the repository, in the demo folder. This file demonstrates the following functionalities:
 
 • User creation and password management
 • Task creation and assignment
 • Notification system usage
 • Task category management
+
+```bash
+# To run the demo:
+node dist/demo/TestApp.js
+```
 
 You can find the example here or by running the module in your environment.
 

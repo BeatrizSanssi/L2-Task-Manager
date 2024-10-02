@@ -143,7 +143,7 @@ export class TaskManager {
    *
    * @param {User} student - The student to notify.
    * @param {string} message - The message to send.
-   * @param {keyof typeof messageTypes} notificationType - The type of notification.
+   * @param {string} notificationType - The task associated with the notification.
    * @param {Task} task - The task associated with the notification.
    */
   notifyStudent(student: User, notificationType: string, task: Task): void {

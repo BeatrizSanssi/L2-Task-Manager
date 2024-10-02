@@ -5,7 +5,7 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
-import { User } from '../Task Management System/User'
+import { User } from '../src/User'
 
 describe('User', () => {
   let user: User

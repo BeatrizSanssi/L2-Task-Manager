@@ -5,7 +5,7 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
-import { Task } from '../Task Management System/Task'
+import { Task } from '../src/Task'
 
 describe('Task', () => {
   let task: Task

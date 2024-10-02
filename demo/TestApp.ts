@@ -5,11 +5,11 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
-import { Task } from '../Task Management System/Task'
-import { NotificationSystem } from '../Task Management System/NotificationSystem'
-import { User } from '../Task Management System/User'
-import { Category } from '../Task Management System/Category'
-import { TaskManager } from '../Task Management System/TaskManager'
+import { Task } from '../src/Task'
+import { NotificationSystem } from '../src/NotificationSystem'
+import { User } from '../src/User'
+import { Category } from '../src/Category'
+import { TaskManager } from '../src/TaskManager'
 
 // Create a new user
 const user = new User('Paul Hanson', 'paul.hanson1@student.lnu.se', 'Student')
@@ -47,9 +47,6 @@ try {
   // Try to change the category to another
   category.setCategoryName('Science')
   console.log('Category updated to:', category.toString())
-
-  // Try setting an invalid category
-  const invalidCategory = new Category('InvalidCategory')
 } catch (error) {
   if (error instanceof Error) {
     console.error(error.message)
@@ -66,9 +63,9 @@ const task1 = new Task(
   'Maria Johnson',
   'Essay',
   'Write an essay about "Lord of the Flies". The essay must have a minimum of 500 words.',
-  new Date('Deadline: 2024-10-01'),
-  'not started',
-  new Date('Created at 2024-09-01'),
+  new Date('Deadline: 2024-12-01'),
+  'Not started',
+  new Date('Created at 2024-09-30'),
 )
 
 console.log('Task created:', task1)
@@ -83,7 +80,7 @@ taskManager.assignTaskToStudent(
 console.log('Task assigned to student:', user.name)
 
 // Add task to the task manager
-taskManager.createTask(task1)
 taskManager.notifyStudent(user, 'newTask', task1)
+taskManager.listTasks()
 
-console.log(taskManager.listTasks())
+// console.log('List of tasks:', taskManager.listTasks())
