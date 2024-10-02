@@ -11,7 +11,7 @@
 | **isValidPassword()** | Method Name | _Boolean Methods Should Ask a Question_ | The prefix “is” suggests that the method returns a boolean value, aligning with the convention that boolean methods should start with “is”, “has”, or “can.” Just as the name implies, the method checks if a password is valid.                                                  |
 | **hashedPassword()** | Variable Name | _Avoid Mental Mapping_                | The variable name is straightforward and self-explanatory. It clearly describes that the password is hashed, which aligns with the author's rule about letting variable names be understandable and in no need of being translated or further explained.                           |
 
-## General Reflections
+## Naming Reflections - Chapter 2 (Clean Code)
 
 To ensure my code is understandable and to make it easier for others to follow, while also separating concerns, I have aimed to use names for both classes and methods that are pronounceable and informative, or “intention-revealing,” as the author suggests. I’ve also tried to keep the length of the names appropriate to the scope of the method. However, this has been challenging at times. For instance, the method checkDeadlineApproaching(),felt too long. But at the time, I couldn’t think of a shorter, equally descriptive name, so I chose to keep it. There are other examples of longer names in my code as well.
 
@@ -21,11 +21,11 @@ In hindsight, I feel that ‘Category’ was not a good class name, as perhaps �
 
 I chose to implement a switch in my notification system to handle the different types of messages. This was done to simplify its use in other classes and tests, and to align with the assignment’s requirements. The author states that switch statements should generally be avoided and tolerated if they only appear once, which is the case for my module.
 
-## Method Reflections - Chapter 3
+## Method Reflections - Chapter 3 (Clean Code)
 
 I have strived to keep functions short and focused on handling a single task. Personally, I feel that this can sometimes make the code seem a bit cluttered. Of course, it’s easier to understand a method when it’s simple and small, but when there are several lines with multiple functions one after the other, and sometimes functions that are similar to each other, it can become a bit confusing to keep track of everything. Therefore, I used a lot of comments during the development of the classes to keep track of where I was and what I needed to do next. These were later removed and/or replaced.
 
-Most of my methods are small and are only doing one thing, but some methods I feel could probably be split into smaller functions, However, due to time constraints and, in some cases, a lack of creativity, I kept them as they were. See the table below.
+Most of my methods are small and are only doing one thing, but some methods I feel could probably be split into smaller functions, However, due to time constraints and, in some cases, a lack of creativity, I kept them as they were. See the table below. I counted the lines without adding the lines with comments.
 
 ### Method Table
 
