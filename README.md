@@ -27,38 +27,36 @@ Responsible for managing tasks, assigning tasks to users, and handling notificat
 - **createTask(task: Task): void**  
   Creates a new task.
 
-Parameters:
+  Parameters:
 
-- `task` (Task): The task object containing task details (ID, category, title, etc.).
+  - `task` (Task): The task object containing task details (ID, category, title, etc.).
 
 - **assignTaskToStudent(task: Task, teacher: User, student: User): void**  
   Assigns a task to a student and records the teacher assigning it.
 
-Parameters:
+  Parameters:
 
-- `task` (Task): The task to assign.
-- `teacher` (User): The teacher assigning the task.
-- `student` (User): The student to whom the task is assigned.
+  - `task` (Task): The task to assign.
+  - `teacher` (User): The teacher assigning the task.
+  - `student` (User): The student to whom the task is assigned.
 
 - **updateTask(taskId: string, updatedTask: Task): void**  
   Updates a task using its id.
 
-Parameters:
+  Parameters:
 
-- `taskId` (string): The tasks id.
-- `updatedTask` (Task): The updated task containing task details (ID, category, title, etc.).
+  - `taskId` (string): The tasks id.
+  - `updatedTask` (Task): The updated task containing task details (ID, category, title, etc.).
 
 - **removeTask(taskId: string): void**  
   Removes a task using its id.
 
-Parameters:
+  Parameters:
 
-- `taskId` (string): The tasks id.
+  - `taskId` (string): The tasks id.
 
 - **listTasks(): void**  
   Lists all existing tasks.
-
-Parameters:
 
 - **notifyStudent(student: User, notificationType: string, task: Task): void**  
   Sends a notification to a student regarding a task.
@@ -99,23 +97,23 @@ Represents a student or teacher.
 - **createPassword(password: string): Promise< void >**
   Creates and hashes the users password.
 
-Parameters:
+  Parameters:
 
-- `password` (string): The password to create.
+  - `password` (string): The password to create.
 
 - **checkPassword(password: string): Promise< void >**  
   Verifies whether the provided password matches the stored hashed password.
 
-Parameters:
+  Parameters:
 
-- `password` (string): The password to verify.
+  - `password` (string): The password to verify.
 
 - **assignRole(role: 'Student' | 'Teacher'): void**  
   Assigns a role to the user.
 
-Parameters:
+  Parameters:
 
-- `role` ('student' | 'teacher'): The password to verify
+  - `role` ('student' | 'teacher'): The password to verify
 
 ### Task
 
@@ -126,27 +124,17 @@ Represents a task with fields like ID, category, type, title, description, deadl
 - **hasStarted(): boolean**  
   Determines whether the task has been started by the student.
 
-Parameters:
-
 - **hasCompleted(): boolean**  
   Determines whether the task has been completed.
-
-Parameters:
 
 - **inProgress(): boolean**  
   Determines whether the task is currently in progress.
 
-Parameters:
-
 - **notStarted(): boolean**  
   Determines whether the task has not been started.
 
-Parameters:
-
 - **toString(): string**  
   Returns a string representation of the task.
-
-Parameters:
 
 ### Category
 
@@ -157,14 +145,12 @@ Represents the task’s category (e.g., English, Math).
 - **setCategoryName(newName: string): void**  
   Sets the category name to a new valid category.
 
-Parameters:
+  Parameters:
 
-- `newName` (string): The catagory name to set.
+  - `newName` (string): The catagory name to set.
 
 - **toString(): string**  
   Returns the category name as a string.
-
-Parameters:
 
 ### Notification System
 
@@ -175,31 +161,28 @@ Handles task notifications.
 - **setNotificationType(type: string): void**  
   Updates the notification type and corresponding message.
 
-Parameters:
+  Parameters:
 
-- `type` (string): The new notification type.
+  - `type` (string): The new notification type.
 
 - **sendNotification(notificationDetails: {
   recipient: string
   taskTitle: string
   category: string
   taskType: string
-  deadline: Date
-  }): void**  
+  deadline: Date}): void**  
   Sends a notification to a recipient with task details.
 
-Parameters:
+  Parameters:
 
-- `recipient` (string): The new notification type.
-- `taskTitle` (string): The new notification type.
-- `category` (string): The new notification type.
-- `taskType` (string): The new notification type.
-- `deadline` (string): The new notification type.
+  - `recipient` (string): The new notification type.
+  - `taskTitle` (string): The new notification type.
+  - `category` (string): The new notification type.
+  - `taskType` (string): The new notification type.
+  - `deadline` (string): The new notification type.
 
 - **toString(): string**  
   Returns the type of the notification as a string.
-
-Parameters:
 
 ## Testing
 
