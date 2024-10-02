@@ -286,8 +286,6 @@ If you encounter any issues or have any questions, feel free to open an issue on
 
 The module has been thoroughly tested. Check the tests folder for test cases covering different functionalities like task creation, updates, assignment, and reminders (./Test). You can also check the tesreport for results.
 
------------------------|---------|----------|---------|---------|--------------------------
-
 | File                    | % Stmts   | % Branch   | % Funcs   | % Lines   | Uncovered Line #s          |
 | ----------------------- | --------- | ---------- | --------- | --------- | -------------------------- |
 | All files               | 90.65     | 83.33      | 96.07     | 90.44     |                            |
@@ -296,4 +294,3 @@ The module has been thoroughly tested. Check the tests folder for test cases cov
 | Task.ts                 | 96        | 92.3       | 95.23     | 96        | 162,185                    |
 | TaskManager.ts          | 89.39     | 70.83      | 100       | 88.7      | 46,73,98,115,151-155,177   |
 | User.ts                 | 81.81     | 100        | 100       | 81.81     | 66-67,82-83                |
-| ----------------------- | --------- | ---------- | --------- | --------- | -------------------------- |
