@@ -71,5 +71,4 @@ console.log('Task assigned to student:', user.name);
 // Add task to the task manager
 taskManager.notifyStudent(user, 'newTask', task1);
 taskManager.listTasks();
-console.log(taskManager.listTasks());
 //# sourceMappingURL=TestApp.js.map

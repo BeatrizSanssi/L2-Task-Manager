@@ -179,7 +179,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-yes">19x</span>
@@ -215,6 +214,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -245,102 +246,101 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** 
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * The user class represents a user of the task management system, as either a student or a teacher.
  * It handles the users information, role, password and validation.
- * 
+ *
  * @class User
  * @version 1.0.0
  * @author Beatriz Sanssi &lt;bs222eh@student.lnu.se&gt;
-*/
+ */
 &nbsp;
-import * as bcrypt from 'bcrypt';
-import { v4 as uuidv4 } from 'uuid';
+import * as bcrypt from 'bcrypt'
+import { v4 as uuidv4 } from 'uuid'
 &nbsp;
 export class User {
-  userId: string;
-  name: string;
-  email: string;
-  role: 'Student' | 'Teacher';
-  private hashedPassword!: string; // The hashed password marked as 'being set later'
-&nbsp;
+  userId: string
+  name: string
+  email: string
+  role: 'Student' | 'Teacher'
+  private hashedPassword!: string // The hashed password marked as 'being set later'
 &nbsp;
   /**
    * Constructs a new User instance.
    * Automatically generates a unique ID for each user.
-   * 
+   *
    * @param {string} name - The name of the user.
    * @param {string} email - The email of the user.
    * @param {'Student' | 'Teacher'} role - The role of the user, either 'Student' or 'Teacher'.
    */
   constructor(name: string, email: string, role: 'Student' | 'Teacher') {
-    this.userId = uuidv4(); // Generate a random id
-    this.name = name;
-    this.email = email;
-    this.role = role;
+    this.userId = uuidv4() // Generate a random id
+    this.name = name
+    this.email = email
+    this.role = role
   }
 &nbsp;
-   /**
+  /**
    * Validates that the provided password meets the minimum length requirement.
-   * 
+   *
    * @param {string} password - The password to validate.
    * @returns {boolean} - True if the password is valid, false otherwise.
    */
   private isValidPassword(password: string): boolean {
-    return password.length &gt;= 8;
+    return password.length &gt;= 8
   }
 &nbsp;
   /**
    * Creates and hashes the users password.
-   * 
+   *
    * @param {string} password - The user's password to hash.
    * @returns {Promise&lt;void&gt;} - A promise that resolves when the password has been hashed.
    * @throws {Error} - If the password is invalid or hashing fails.
    */
   async createPassword(password: string): Promise&lt;void&gt; {
     if (!this.isValidPassword(password)) {
-      throw new Error('Password must be at least 8 characters long.');
+      throw new Error('Password must be at least 8 characters long.')
     }
 &nbsp;
     // Hash the password
     try {
-      const saltRounds = 10;
-      this.hashedPassword = await bcrypt.hash(password, saltRounds);
-      this.assignRole(this.role);
-      console.log(`User ${this.name} with role ${this.role} has been created with a hashed password.`);
+      const saltRounds = 10
+      this.hashedPassword = await bcrypt.hash(password, saltRounds)
+      this.assignRole(this.role)
+      console.log(
+        `User ${this.name} with role ${this.role} has been created with a hashed password.`,
+      )
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >      console.error('Error hashing password:', error);</span>
-<span class="cstat-no" title="statement not covered" >      throw new Error('Error creating user.');</span>
+<span class="cstat-no" title="statement not covered" >      console.error('Error hashing password:', error)</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error('Error creating user.')</span>
     }
   }
 &nbsp;
-   /**
+  /**
    * Verifies whether the provided password matches the stored hashed password.
-   * 
+   *
    * @param {string} password - The password to verify.
    * @returns {Promise&lt;boolean&gt;} - A promise that resolves to true if the password matches, false otherwise.
    * @throws {Error} - If the password comparison fails.
    */
   async checkPassword(password: string): Promise&lt;boolean&gt; {
     try {
-      return await bcrypt.compare(password, this.hashedPassword);
+      return await bcrypt.compare(password, this.hashedPassword)
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >      console.error('Error comparing password:', error);</span>
-<span class="cstat-no" title="statement not covered" >      return false;</span>
+<span class="cstat-no" title="statement not covered" >      console.error('Error comparing password:', error)</span>
+<span class="cstat-no" title="statement not covered" >      return false</span>
     }
   }
 &nbsp;
-   /**
+  /**
    * Assigns a role to the user.
-   * 
+   *
    * @param {'student' | 'teacher'} role - The role to assign to the user.
    */
   assignRole(role: 'Student' | 'Teacher'): void {
-    this.role = role;
+    this.role = role
   }
 }
-  
 &nbsp;</pre></td></tr></table></pre>
 
       <div class="push"></div>
@@ -355,7 +355,7 @@ export class User {
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-10-02T08:48:37.012Z
+      at 2024-10-02T18:52:52.644Z
     </div>
     <script src="prettify.js"></script>
     <script>

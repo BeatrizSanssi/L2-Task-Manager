@@ -129,7 +129,19 @@
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
 <a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,6 +155,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -190,6 +211,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -202,80 +225,93 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** 
-* The Category class handles the validation and setting of categories.
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * The Category class handles the validation and setting of categories.
  * It ensures that only valid categories can be assigned.
- * 
+ *
  * @class Category
  * @version 1.0.0
  * @author Beatriz Sanssi &lt;bs222eh@student.lnu.se&gt;
  *
-*/
+ */
 &nbsp;
 export class Category {
-  name: string;
+  name: string
 &nbsp;
   private static validCategories: string[] = [
-    'Math', 'Science', 'English', 'History', 
-    'Geography', 'Art', 'Music', 'Physical Education', 
-    'Technology', 'Religion', 'Social Studies'];
+    'Math',
+    'Science',
+    'English',
+    'History',
+    'Geography',
+    'Art',
+    'Music',
+    'Physical Education',
+    'Technology',
+    'Religion',
+    'Social Studies',
+  ]
 &nbsp;
   /**
    * Constructs a new Category instance and validates the provided name.
-   * 
+   *
    * @param {string} name - The name of the category.
    * @throws {Error} - Throws an error if the category name is invalid.
    */
   constructor(name: string) {
-    this.name = this.validateCategoryName(name);
+    this.name = this.validateCategoryName(name)
   }
 &nbsp;
   /**
    * Validates that the provided category name is not empty and exists in the list
    * of valid categories.
-   * 
+   *
    * @private
    * @param {string} name - The name of the category to validate.
    * @returns {string} - The validated category name.
    * @throws {Error} - Throws an error if the category name is empty or invalid.
-   */  
+   */
   private validateCategoryName(name: string): string {
     if (!name || name.trim().length === 0) {
-      throw new Error('Category name cannot be empty.');
+      throw new Error('Category name cannot be empty.')
     }
 &nbsp;
     // Ensure the category name is in the list of valid categories
     if (!Category.validCategories.includes(name)) {
-      throw new Error('Invalid category name.');
+      throw new Error('Invalid category name.')
     }
 &nbsp;
-    return name;
+    return name
   }
 &nbsp;
-   /**
+  /**
    * Sets the category name to a new valid category.
-   * 
+   *
    * @param {string} newName - The new category name to set.
    * @throws {Error} - Throws an error if the new category name is invalid.
    */
   public setCategoryName(newName: string): void {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (!Category.validCategories.includes(newName)) {
-<span class="cstat-no" title="statement not covered" >      throw new Error(`Invalid category name: ${newName}. Please choose from the valid categories.`);</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error(</span>
+        `Invalid category name: ${newName}. Please choose from the valid categories.`,
+      )
     }
 &nbsp;
-    this.name = newName;
-    console.log(`Category name updated to: ${this.name}`);
+    this.name = newName
+    console.log(`Category name updated to: ${this.name}`)
   }
 &nbsp;
   /**
    * Returns the category name as a string.
-   * 
+   *
    * @returns {string} - The category name.
    */
   toString(): string {
-    return this.name;
+    return this.name
   }
-}</pre></td></tr></table></pre>
+}
+&nbsp;</pre></td></tr></table></pre>
 
       <div class="push"></div>
       <!-- for sticky footer -->
@@ -289,7 +325,7 @@ export class Category {
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2024-10-02T08:48:37.012Z
+      at 2024-10-02T18:52:52.644Z
     </div>
     <script src="prettify.js"></script>
     <script>

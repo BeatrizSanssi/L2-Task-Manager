@@ -2,20 +2,20 @@
 
 | Test Case | What is Being Tested                        | How it is Tested                                                                                                 | Expected Outcome                                                                            | Actual Outcome                                              | Date Conducted | Result Image                                                                                        |
 | --------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------- | --------------------------------------------------------------------------------------------------- |
-| **1**     | Create a task and assign it to a student    | Create and assign a task to a student, then log the details                                                      | The task should be created and assigned to the student, and displayed in the console        | Test failed initially, but passed after correction          | 2024-09-26     | ![Task Created and Assigned To Student](./ReportPictures/newTaskCreatedAndAssigned.png)             |
-| **2**     | Create a user                               | Create a password and assign role to the user, then log the user details                                         | The user should be created with a unique ID, a hashed password, and role should be assigned | The tests passed. User was created successfully             | 2024-09-23     | ![User Created](./ReportPictures/createPasswordAndAssignRole.png)                                   |
-| **3**     | Send notification to student                | Create a notification system and send a notification with correct details                                        | The notification should include the correct details and be sent to the corresponding user   | The tests passed. Notification sent successfully            | 2024-09-30     | ![Notification Sent](./ReportPictures/notification.png)                                             |
-| **4**     | Update and remove tasks                     | Update a task, then delete it using the unique task id                                                           | Tasks should be updated and removed successfully                                            | The tests passed. Tasks were updated and removed            | 2024-10-01     | ![Updated Task](./ReportPictures/updatedTask.png) ![Deleted Task](./ReportPictures/deletedTask.png) |
-| **5**     | Remind a student about unstarted task       | Create a task older than a week and remind the student to start it                                               | The student should receive a reminder about the unstarted task                              | The tests passed. Student received the reminder             | 2024-10-01     | ![Reminder Message](./ReportPictures/reminderMessage.png)                                           |
-| **6**     | Remind a student about an upcoming deadline | Create a task with a deadline in two days, remind the student about the upcoming deadline                        | The student should receive a notification about the upcoming deadline                       | The tests passed. Student received the deadline reminder    | 2024-10-01     | ![Upcoming Deadline Reminder](./ReportPictures/upcomingDeadline.png)                                |
-| **7**     | List all tasks                              | Create two tasks and assign them to the student, then call `listTasks` and check if a list of tasks is displayed | A list with the created tasks should be displayed                                           | The test passed. A list with the created tasks is displayed | 2024-10-02     | ![List All Tasks](./ReportPictures/listAllTasks.png)                                                |
-| **8**     | No available tasks                          | Without creating tasks, call `listTasks` and check if a message indicating no tasks are available is logged      | A log informing that there are no tasks available should be displayed                       | The test passed. There are no tasks to list                 | 2024-10-02     | ![No Tasks Available](./ReportPictures/noTasks.png)                                                 |
-| **9**     | Creating a task with the teacher not set    | Call `addStudent` to add a student, then try to create a task without setting a teacher                          | An error should be thrown saying 'Student or teacher must be set before creating a task'    | The test passed. Error is thrown                            | 2024-10-02     | ![Error: No Teacher Set](./ReportPictures/errorNoTeacherSet.png)                                    |
-| **10**    | Creating a task with an existing Id         | Create two tasks with the same ID and assign them to the student                                                 | An error should be thrown saying 'A task with the ID 1 already exists'                      | The test passed. Error is thrown                            | 2024-10-02     | ![Error: Task ID Conflict](./ReportPictures/errorID.png)                                            |
-| **11**    | Validate task type                          | Create a task with an invalid task type                                                                          | An error should be thrown saying 'Invalid task type'                                        | The test passed. Error is thrown                            | 2024-10-02     | ![Validate Task Type](./ReportPictures/validateTask.png)                                            |
-| **12**    | Validate task status                        | Create a task with an invalid status                                                                             | An error should be thrown saying 'Invalid status'                                           | The test passed. Error is thrown                            | 2024-10-02     | ![Validate Task Status](./ReportPictures/validateTask.png)                                          |
-| **13**    | Empty task title                            | Create a task without a title                                                                                    | An error should be thrown saying 'Title cannot be empty'                                    | The test passed. Error is thrown                            | 2024-10-02     | ![Empty Task Title](./ReportPictures/validateTask.png)                                              |
-| **14**    | Invalid Deadline                            | Create a task with an invalid deadline                                                                           | An error should be thrown saying 'Invalid deadline'                                         | The test passed. Error is thrown                            | 2024-10-02     | ![Invalid Deadline](./ReportPictures/validateTask.png)                                              |
+| **1**     | Create a task and assign it to a student    | Create and assign a task to a student, then log the details                                                      | The task should be created and assigned to the student, and displayed in the console        | Test failed initially, but passed after correction          | 2024-09-26     | ![Task Created and Assigned To Student](./Test/ReportPictures/newTaskCreatedAndAssigned.png)             |
+| **2**     | Create a user                               | Create a password and assign role to the user, then log the user details                                         | The user should be created with a unique ID, a hashed password, and role should be assigned | The tests passed. User was created successfully             | 2024-09-23     | ![User Created](./Test/ReportPictures/createPasswordAndAssignRole.png)                                   |
+| **3**     | Send notification to student                | Create a notification system and send a notification with correct details                                        | The notification should include the correct details and be sent to the corresponding user   | The tests passed. Notification sent successfully            | 2024-09-30     | ![Notification Sent](./Test/ReportPictures/notification.png)                                             |
+| **4**     | Update and remove tasks                     | Update a task, then delete it using the unique task id                                                           | Tasks should be updated and removed successfully                                            | The tests passed. Tasks were updated and removed            | 2024-10-01     | ![Updated Task](./Test/ReportPictures/updatedTask.png) ![Deleted Task](./ReportPictures/deletedTask.png) |
+| **5**     | Remind a student about unstarted task       | Create a task older than a week and remind the student to start it                                               | The student should receive a reminder about the unstarted task                              | The tests passed. Student received the reminder             | 2024-10-01     | ![Reminder Message](./Test/ReportPictures/reminderMessage.png)                                           |
+| **6**     | Remind a student about an upcoming deadline | Create a task with a deadline in two days, remind the student about the upcoming deadline                        | The student should receive a notification about the upcoming deadline                       | The tests passed. Student received the deadline reminder    | 2024-10-01     | ![Upcoming Deadline Reminder](./Test/ReportPictures/upcomingDeadline.png)                                |
+| **7**     | List all tasks                              | Create two tasks and assign them to the student, then call `listTasks` and check if a list of tasks is displayed | A list with the created tasks should be displayed                                           | The test passed. A list with the created tasks is displayed | 2024-10-02     | ![List All Tasks](./Test/ReportPictures/listAllTasks.png)                                                |
+| **8**     | No available tasks                          | Without creating tasks, call `listTasks` and check if a message indicating no tasks are available is logged      | A log informing that there are no tasks available should be displayed                       | The test passed. There are no tasks to list                 | 2024-10-02     | ![No Tasks Available](./Test/ReportPictures/noTasks.png)                                                 |
+| **9**     | Creating a task with the teacher not set    | Call `addStudent` to add a student, then try to create a task without setting a teacher                          | An error should be thrown saying 'Student or teacher must be set before creating a task'    | The test passed. Error is thrown                            | 2024-10-02     | ![Error: No Teacher Set](./Test/ReportPictures/errorNoTeacherSet.png)                                    |
+| **10**    | Creating a task with an existing Id         | Create two tasks with the same ID and assign them to the student                                                 | An error should be thrown saying 'A task with the ID 1 already exists'                      | The test passed. Error is thrown                            | 2024-10-02     | ![Error: Task ID Conflict](./Test/ReportPictures/errorID.png)                                            |
+| **11**    | Validate task type                          | Create a task with an invalid task type                                                                          | An error should be thrown saying 'Invalid task type'                                        | The test passed. Error is thrown                            | 2024-10-02     | ![Validate Task Type](./Test/ReportPictures/validateTask.png)                                            |
+| **12**    | Validate task status                        | Create a task with an invalid status                                                                             | An error should be thrown saying 'Invalid status'                                           | The test passed. Error is thrown                            | 2024-10-02     | ![Validate Task Status](./Test/ReportPictures/validateTask.png)                                          |
+| **13**    | Empty task title                            | Create a task without a title                                                                                    | An error should be thrown saying 'Title cannot be empty'                                    | The test passed. Error is thrown                            | 2024-10-02     | ![Empty Task Title](./Test/ReportPictures/validateTask.png)                                              |
+| **14**    | Invalid Deadline                            | Create a task with an invalid deadline                                                                           | An error should be thrown saying 'Invalid deadline'                                         | The test passed. Error is thrown                            | 2024-10-02     | ![Invalid Deadline](./Test/ReportPictures/validateTask.png)                                              |
 
 ## Test case 1: Create a task and assign it to a student
 
@@ -48,7 +48,7 @@ Test failed. The order and number of variables were incorrect.
 **After correcting**:
 Task was successfully created and assigned to the student.
 
-![Task Created and Assigned To Student Test Result](./ReportPictures/newTaskCreatedAndAssigned.png)
+![Task Created and Assigned To Student Test Result](./Test/ReportPictures/newTaskCreatedAndAssigned.png)
 
 ## Test case 2: Create a user
 
@@ -74,7 +74,7 @@ The user should be created with a unique ID, a hashed password, and the role sho
 **Actual outcome**:
 All tests passed. The user was created successfully, the password was hashed, and the role was assigned.
 
-![User Assigned To Student Test Result](./ReportPictures/createPasswordAndAssignRole.png)
+![User Assigned To Student Test Result](./Test/ReportPictures/createPasswordAndAssignRole.png)
 
 ## Test case 3: Send notification to student
 
@@ -101,7 +101,7 @@ The notfication should include the correct detail and be sent to the correspondi
 **Actual outcome**:
 All the tests passed and the notification was successfully sent with the correct details.
 
-![Student Notification About New Task Test Result](./ReportPictures/notification.png)
+![Student Notification About New Task Test Result](./Test/ReportPictures/notification.png)
 
 ## Test case 4: Update and Remove Tasks
 
@@ -139,8 +139,8 @@ Methods `removeTask`and `updateTask` in class `TaskManager`
 
 The tasks were updated and removed.
 
-![Updated Task Test Result](./ReportPictures/updatedTask.png)
-![Deleted Task Test Result](./ReportPictures/deletedTask.png)
+![Updated Task Test Result](./Test/ReportPictures/updatedTask.png)
+![Deleted Task Test Result](./Test/ReportPictures/deletedTask.png)
 
 ## Test case 5: Remind a student about an unstarted task
 
@@ -160,7 +160,7 @@ The student should get a reminder notification about the task through the notifi
 **Actual outcome**:
 The tests passed. The student recieved a remeinder about the task.
 
-![Remind The Student About Unstarted Task Test Result](./ReportPictures/reminderMessage.png)
+![Remind The Student About Unstarted Task Test Result](./Test/ReportPictures/reminderMessage.png)
 
 ## Test case 6: Remind a student about an up comming deadline
 
@@ -181,7 +181,7 @@ The student should get a reminder notification about the tasks deadline.
 
 The test passes. The student gets a notification about the up comming deadline.
 
-![Remind The Student About An Up Comming Deadline Test Result](./ReportPictures/upcomingDeadline.png)
+![Remind The Student About An Up Comming Deadline Test Result](./Test/ReportPictures/upcomingDeadline.png)
 
 ## Test case 7: List all tasks
 
@@ -201,7 +201,7 @@ A list with the created tasks should be displayed.
 **Actual outcome**:
 The test passed. A list with the created tasks is displayed.
 
-![List All Tasks Test Result](./ReportPictures/listAllTasks.png)
+![List All Tasks Test Result](./Test/ReportPictures/listAllTasks.png)
 
 ## Test case 8: No available tasks
 
@@ -220,7 +220,7 @@ A log informing that there are no tasks available should be displayed.
 **Actual outcome**:
 The test passed. There are no tasks to list.
 
-![No Tasks To List Test Result](./ReportPictures/noTasks.png)
+![No Tasks To List Test Result](./Test/ReportPictures/noTasks.png)
 
 ## Test case 9: Creating a task with the teacher not set
 
@@ -240,7 +240,7 @@ An error is thrown saying 'Student or teacher must be set before creating a task
 **Actual outcome**:
 The test passed. Error is thrown.
 
-![Create A Task Without A Teacher Set Test Result](./ReportPictures/errorNoTeacherSet.png)
+![Create A Task Without A Teacher Set Test Result](./Test/ReportPictures/errorNoTeacherSet.png)
 
 ## Test case 10: Creating a task with an existing Id
 
@@ -261,7 +261,7 @@ An error is thrown saying 'A task with the ID 1 already exists'.
 **Actual outcome**:
 The test passed. Error is thrown.
 
-![Create A Task With An Existing Id Test Result](./ReportPictures/errorID.png)
+![Create A Task With An Existing Id Test Result](./Test/ReportPictures/errorID.png)
 
 ## Test case 11: Validate task type
 
@@ -327,4 +327,4 @@ An error should be thrown saying 'Invalid deadline'.
 **Actual outcome**:
 The test passed. Error is thrown.
 
-![Validate Task Test Result](./ReportPictures/validateTask.png)
+![Validate Task Test Result](./Test/ReportPictures/validateTask.png)

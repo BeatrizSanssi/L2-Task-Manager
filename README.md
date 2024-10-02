@@ -34,11 +34,11 @@ Parameters:
 - **assignTaskToStudent(task: Task, teacher: User, student: User): void**  
   Assigns a task to a student and records the teacher assigning it.
 
-  Parameters:
+Parameters:
 
-  - `task` (Task): The task to assign.
-  - `teacher` (User): The teacher assigning the task.
-  - `student` (User): The student to whom the task is assigned.
+- `task` (Task): The task to assign.
+- `teacher` (User): The teacher assigning the task.
+- `student` (User): The student to whom the task is assigned.
 
 - **updateTask(taskId: string, updatedTask: Task): void**  
   Updates a task using its id.
@@ -201,166 +201,13 @@ Parameters:
 
 Parameters:
 
-## Internal API (Not for public use)
-
-The following methods and properties are internal and should not be accessed or modified directly by users of the module. These are encapsulated for internal logic only:
-
-### TaskManager (Internal)
-
-Handles task notifications.
-
-#### TaskManager Private Methods
-
-- **private assignedTasks: Task[]**  
-  Tracks internally assigned tasks, not for direct user manipulation..
-
-Parameters:
-
-- `type` (string): The new notification type.
-
-### User (Internal)
-
-#### User Private Methods
-
-- **private isValidPassword(password: string): boolean**  
-  Validates that the provided password meets the minimum length requirement.
-
-Parameters:
-
-- `password` (string): The password to validate.
-
-### Task (Internal)
-
-#### Task Private Methods
-
-- **private validateNotEmpty(value: string, fieldName: string): void**  
-  Validates that the provided password meets the minimum length requirement.
-
-Parameters:
-
-- `value` (string): The value to check.
-- `fieldName` (string): The name of the field being validated.
-
-- **private validateTaskType(taskType: string): void**  
-  Validates that the provided task type is one of the allowed types.
-
-Parameters:
-
-- `taskType` (string): The task type to check.
-
-- **private validateStatus(status: string): void**  
-  Validates that the task status is one of the allowed statuses.
-
-Parameters:
-
-- `status` (string): The status to validate.
-- `fieldName` (string): The name of the field being validated.
-
-- **private validateDeadline(deadline: Date): void**  
-  Validates that the provided deadline is a valid date object.
-
-Parameters:
-
-- `deadline` (Date): The deadline to validate.
-
-- **private markAsCompleted(): void**  
-  Marks the task as completed by updating the status.
-
-Parameters:
-
-- **private markAsInProgress(): void**  
-  Marks the task as in progress by updating the status.
-
-Parameters:
-
-- **private markAsNotStarted(): void**  
-  Marks the task as not started by updating the status.
-
-Parameters:
-
-- **private addTaskId(taskId: string): void**  
-  Adds a task ID to the task after ensuring it is not empty.
-
-Parameters:
-
-- `taskId` (string): The unique task ID to add.
-
-- **private addCategory(category: string): void**  
-  Adds a category to the task after validating it is not empty.
-
-Parameters:
-
-- `category` (string): The category to add to the task.
-
-- **private addType(
-  taskType: 'Assignment' | 'Test' | 'Project' | 'Group project',
-  ): void**  
-  Adds a task type to the task after validating it is not empty.
-
-Parameters:
-
-- `taskType` (string): The task type to add to the task.
-
-- **private addAuthor(author: string): void**  
-  Adds an author to the task after validating it is not empty.
-
-Parameters:
-
-- `author` (string): The author to add to the task.
-
-- **private addTitle(title: string): void**  
-  Adds a title to the task after validating it is not empty.
-
-Parameters:
-
-- `title` (string): The title to add to the task.
-
-- **private addDescription(description: string): void**  
-  Adds a description to the task after validating it is not empty.
-
-Parameters:
-
-- `description` (string): The description to add to the task.
-
-- **private addDeadline(deadline: Date): void**  
-  Adds a deadline to the task after validating it is not empty or undefined.
-
-Parameters:
-
-- `deadline` (Date): The deadline to add to the task.
-
-- **private addStatus(status: 'Not started' | 'In progress' | 'Completed'): void**  
-  Adds a status to the task after validating it is not empty.
-
-Parameters:
-
-- `status` (string): The status to add to the task.
-
-### Category (Internal)
-
-#### Category Private Methods
-
-- **private validateCategoryName(name: string): string**  
-  Validates that the provided password meets the minimum length requirement.
-
-Parameters:
-
-- `name` (string): The name of the category to validate.
-
-### Notification System (Internal)
-
-#### Notification System Private Methods
-
-- **private getMessage(type: string): string**  
-  Returns the message associated with the notification type.
-
-Parameters:
-
-- `type` (string): The type of notification.
-
 ## Testing
 
-To test the module, you can run the following command: npm run test
+To test the module, you can run the following command:
+
+```bash
+npm run test
+```
 
 ## Contribution
 
@@ -373,13 +220,17 @@ If you want to contribute to the development of this module, feel free to fork t
 3. Write your code and tests.
 4. Submit a pull request explaining your changes.
 
+## Report Bugs
+
+If you encounter any issues or bugs, please report them [here](https://github.com/BeatrizSanssi/L2-Task-Manager/issues).
+
 ### License
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+This project is licensed under the MIT License. See the LICENSE file for more details [MIT License](./LISENCE).
 
 ### Contact
 
-For any questions or suggestions, feel free to contact Beatriz Sanssi.
+For any questions or suggestions, feel free to contact Beatriz Sanssi <bs222eh@student.lnu.se>
 
 ## Requirements
 
@@ -442,21 +293,24 @@ You can find the example here or by running the module in your environment.
 
 ### Versioning
 
-This module follows semantic versioning (1.0.0). Please refer to the release notes for the latest updates.
+This module follows semantic versioning (1.0.0). For change logs and updates, please see [CHANGELOG.md](./CHANGELOG.md).
 
 ### Support
 
 If you encounter any issues or have any questions, feel free to open an issue on the GitHub repository.
 
-### Testrapports (Test Reports)
+### Test Reports
 
-The module has been thoroughly tested. Check the tests folder for test cases covering different functionalities like task creation, updates, assignment, and reminders. You can also check the tesreport for results.
+The module has been thoroughly tested. Check the tests folder for test cases covering different functionalities like task creation, updates, assignment, and reminders (./Test). You can also check the tesreport for results.
 
-| File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s            |
-| --------------------- | ------- | -------- | ------- | ------- | ---------------------------- |
-| All files             | 90.11   | 82.53    | 95.91   | 89.82   |                              |
-| Category.ts           | 92.3    | 80       | 100     | 92.3    | 59                           |
-| NotificationSystem.ts | 92      | 94.73    | 66.66   | 92      | 34,94                        |
-| Task.ts               | 96      | 92.3     | 95.23   | 96      | 152,175                      |
-| TaskManager.ts        | 87.09   | 68       | 100     | 85.96   | 45,73,92,106,126,144-145,152 |
-| User.ts               | 81.81   | 100      | 100     | 81.81   | 65-66,81-82                  |
+-----------------------|---------|----------|---------|---------|--------------------------
+
+| File                    | % Stmts   | % Branch   | % Funcs   | % Lines   | Uncovered Line #s          |
+| ----------------------- | --------- | ---------- | --------- | --------- | -------------------------- |
+| All files               | 90.65     | 83.33      | 96.07     | 90.44     |                            |
+| Category.ts             | 92.3      | 80         | 100       | 92.3      | 68                         |
+| NotificationSystem.ts   | 90.32     | 91.3       | 80        | 90.32     | 46-48,133                  |
+| Task.ts                 | 96        | 92.3       | 95.23     | 96        | 162,185                    |
+| TaskManager.ts          | 89.39     | 70.83      | 100       | 88.7      | 46,73,98,115,151-155,177   |
+| User.ts                 | 81.81     | 100        | 100       | 81.81     | 66-67,82-83                |
+| ----------------------- | --------- | ---------- | --------- | --------- | -------------------------- |
