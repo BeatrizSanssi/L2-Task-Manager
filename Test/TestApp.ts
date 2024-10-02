@@ -36,25 +36,25 @@ async function setupUserPassword() {
 setupUserPassword()
 
 // Create a notification system
-const notificationSystem = new NotificationSystem('New Task:', 'newTask')
+const notificationSystem = new NotificationSystem('newTask')
 console.log('Notification system created:', notificationSystem)
 
 // Create a category
-try { 
-const category = new Category('Math')
-console.log(category.toString());
+try {
+  const category = new Category('Math')
+  console.log(category.toString())
 
-// Try to change the category to another
-category.setCategoryName('Science');
-console.log('Category updated to:', category.toString());
+  // Try to change the category to another
+  category.setCategoryName('Science')
+  console.log('Category updated to:', category.toString())
 
-// Try setting an invalid category
-const invalidCategory = new Category('InvalidCategory'); 
+  // Try setting an invalid category
+  const invalidCategory = new Category('InvalidCategory')
 } catch (error) {
   if (error instanceof Error) {
-    console.error(error.message);
+    console.error(error.message)
   } else {
-    console.error('An unknown error occurred');
+    console.error('An unknown error occurred')
   }
 }
 
@@ -84,6 +84,6 @@ console.log('Task assigned to student:', user.name)
 
 // Add task to the task manager
 taskManager.createTask(task1)
-taskManager.notifyStudent(user, 'New task added', 'newTask', task1 )
+taskManager.notifyStudent(user, 'newTask', task1)
 
 console.log(taskManager.listTasks())

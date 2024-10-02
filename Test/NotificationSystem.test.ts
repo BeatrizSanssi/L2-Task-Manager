@@ -5,21 +5,20 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
-import { NotificationSystem, messageTypes } from '../Task Management System/NotificationSystem'
+import { NotificationSystem } from '../Task Management System/NotificationSystem'
 
 describe('NotificationSystem', () => {
   let notificationSystem: NotificationSystem
 
   beforeEach(() => {
     // Create a new notification system before each test
-    notificationSystem = new NotificationSystem(
-      'You have a new task!',
-      'newTask',
-    )
+    notificationSystem = new NotificationSystem('newTask')
   })
 
   it('should create a notification system with valid message and type', () => {
-    expect(notificationSystem.message).toBe('You have a new task!')
+    expect(notificationSystem.message).toBe(
+      'A new task has been assigned to you.',
+    )
     expect(notificationSystem.type).toBe('newTask')
     console.log('NotificationSystem created successfully!', notificationSystem)
   })
@@ -36,14 +35,17 @@ describe('NotificationSystem', () => {
 
     notificationSystem.sendNotification(notificationDetails)
 
-    expect(notificationSystem.message).toBe('You have a new task!')
+    expect(notificationSystem.message).toBe(
+      'A new task has been assigned to you.',
+    )
     console.log('Notification sent successfully!', notificationDetails)
   })
 
   it('should throw an error for invalid message types', () => {
     expect(() => {
-      new NotificationSystem('This is a task!', 'invalidType' as keyof typeof messageTypes)
-    }).toThrow('Invalid notification type: invalidType. Please provide a valid notification type.')
+      new NotificationSystem('invalidType')
+    }).toThrow('Invalid notification type: invalidType.')
+    console.log('Error thrown for invalid message type')
   })
 
   it('should throw an error if recipient is empty', () => {

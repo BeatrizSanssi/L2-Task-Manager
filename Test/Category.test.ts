@@ -42,5 +42,4 @@ describe('Category', () => {
       new Category('')
     }).toThrow('Category name cannot be empty.')
   })
-
 })

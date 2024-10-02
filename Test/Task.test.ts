@@ -53,28 +53,36 @@ describe('Task', () => {
         'Not started',
         new Date('2024-09-02'),
       )
-    }).toThrow('Invalid task type: InvalidType. Valid task types are: Assignment, Test, Project, Group project')
+    }).toThrow(
+      'Invalid task type: InvalidType. Valid task types are: Assignment, Test, Project, Group project',
+    )
 
-    console.log('Invalid task type: InvalidType. Valid task types are: Assignment, Test, Project, Group project')
+    console.log(
+      'Invalid task type: InvalidType. Valid task types are: Assignment, Test, Project, Group project',
+    )
   })
 
   it('should validate task status correctly', () => {
-      expect(() => {
-        new Task(
-          '3',
-          'Math',
-          'Test',
-          'Teacher',
-          'Task 3',
-          'This is the third task',
-          new Date('2024-12-01'),
-          'invalid status',
-          new Date('2024-09-03'),
-        )
-      }).toThrow('Invalid status: invalid status. Valid statuses are: Not started, In progress, Completed')
+    expect(() => {
+      new Task(
+        '3',
+        'Math',
+        'Test',
+        'Teacher',
+        'Task 3',
+        'This is the third task',
+        new Date('2024-12-01'),
+        'invalid status',
+        new Date('2024-09-03'),
+      )
+    }).toThrow(
+      'Invalid status: invalid status. Valid statuses are: Not started, In progress, Completed',
+    )
 
-      console.log('Invalid status: `invalid status`. Valid statuses are: Not started, In progress, Completed')
-    })
+    console.log(
+      'Invalid status: `invalid status`. Valid statuses are: Not started, In progress, Completed',
+    )
+  })
 
   it('should throw an error for an empty title', () => {
     expect(() => {
@@ -109,19 +117,19 @@ describe('Task', () => {
     }).toThrow('Invalid deadline. Please provide a valid date.')
     console.log('Invalid deadline. Please provide a valid date.')
   })
-  
+
   it('should mark task as completed', () => {
-    task.hasCompleted();
-    expect(task.status).toBe('Completed');
-  });
+    task.hasCompleted()
+    expect(task.status).toBe('Completed')
+  })
 
   it('should mark task as in progress', () => {
-    task.inProgress();
-    expect(task.status).toBe('In progress');
-  });
+    task.inProgress()
+    expect(task.status).toBe('In progress')
+  })
 
   it('should mark task as not started', () => {
-    task.notStarted();
-    expect(task.status).toBe('Not started');
-  });
+    task.notStarted()
+    expect(task.status).toBe('Not started')
+  })
 })

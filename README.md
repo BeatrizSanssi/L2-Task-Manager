@@ -19,43 +19,43 @@ The **Task Management System** is a simple module that helps manage tasks for st
 The following classes and methods are intended for use by developers integrating this module:
 
 - **TaskManager**: Responsible for managing tasks, assigning tasks to users, and handling notifications.
- • createTask(): Creates a new task.
- • assignTaskToStudent(): Assigns a task to a student.
- • updateTask(): Updates an existing task.
- • removeTask(): Removes a task by its ID.
- • notifyStudent(): Sends notifications to a student regarding tasks.
- • remindAboutUnstartedTask(): Sends a reminder if a task hasn’t been started.
- • checkDeadlineApproaching(): Sends a reminder if a task deadline is approaching.
+  • createTask(): Creates a new task.
+  • assignTaskToStudent(): Assigns a task to a student.
+  • updateTask(): Updates an existing task.
+  • removeTask(): Removes a task by its ID.
+  • notifyStudent(): Sends notifications to a student regarding tasks.
+  • remindAboutUnstartedTask(): Sends a reminder if a task hasn’t been started.
+  • checkDeadlineApproaching(): Sends a reminder if a task deadline is approaching.
 
 - **User**: Represents a student or teacher.
- • createPassword(): Creates and hashes a user’s password.
- • checkPassword(): Verifies a password.
+  • createPassword(): Creates and hashes a user’s password.
+  • checkPassword(): Verifies a password.
 
 - **Task**: Represents a task with fields like ID, category, type, title, description, deadline, and status.
 
 - **Category**: Represents the task’s category (e.g., English, Math).
 
 - **NotificationSystem**: Handles task notifications.
- • sendNotification(): Sends a task-related notification to a user.
+  • sendNotification(): Sends a task-related notification to a user.
 
 Internal API (Not for public use)
 
 The following methods and properties are internal and should not be accessed or modified directly by users of the module. These are encapsulated for internal logic only:
 
- • TaskManager:
- • private assignedTasks: Tracks internally assigned tasks, not for direct user manipulation.
- • Task:
- • private validateNotEmpty(): Validates that required fields are not empty.
- • private validateTaskType(): Validates that the task type is valid.
- • private markAsCompleted(): Internally updates task status to ‘Completed’.
- • private markAsInProgress(): Internally updates task status to ‘In Progress’.
- • private markAsNotStarted(): Internally updates task status to ‘Not Started’.
- • Category:
- • private validateCategoryName(): Validates that the category name is valid.
- • private static validCategories: Stores valid category names.
- • User:
- • private isValidPassword(): Validates that the user’s password meets the required length.
- • private hashedPassword: The user’s password stored securely, inaccessible from outside the class.
+• TaskManager:
+• private assignedTasks: Tracks internally assigned tasks, not for direct user manipulation.
+• Task:
+• private validateNotEmpty(): Validates that required fields are not empty.
+• private validateTaskType(): Validates that the task type is valid.
+• private markAsCompleted(): Internally updates task status to ‘Completed’.
+• private markAsInProgress(): Internally updates task status to ‘In Progress’.
+• private markAsNotStarted(): Internally updates task status to ‘Not Started’.
+• Category:
+• private validateCategoryName(): Validates that the category name is valid.
+• private static validCategories: Stores valid category names.
+• User:
+• private isValidPassword(): Validates that the user’s password meets the required length.
+• private hashedPassword: The user’s password stored securely, inaccessible from outside the class.
 
 ## Testing
 
@@ -67,10 +67,10 @@ If you want to contribute to the development of this module, feel free to fork t
 
 ### How to contribute
 
- 1. Fork the repository.
- 2. Create a new branch for your feature or bug fix.
- 3. Write your code and tests.
- 4. Submit a pull request explaining your changes.
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Write your code and tests.
+4. Submit a pull request explaining your changes.
 
 ### License
 
@@ -122,17 +122,17 @@ npm install task-management-system
 
 To see a full example of how to use the Task Management System, check out the TestApp file included in the repository. This file demonstrates the following functionalities:
 
- • User creation and password management
- • Task creation and assignment
- • Notification system usage
- • Task category management
+• User creation and password management
+• Task creation and assignment
+• Notification system usage
+• Task category management
 
 You can find the example here or by running the module in your environment.
 
 ### Example Usage Scenarios
 
- 1. Automating Task Reminders: Use the module to automatically remind students about their upcoming or unstarted tasks.
- 2. Task Assignment: Teachers can assign tasks to students, and students can receive updates and reminders about these tasks.
+1. Automating Task Reminders: Use the module to automatically remind students about their upcoming or unstarted tasks.
+2. Task Assignment: Teachers can assign tasks to students, and students can receive updates and reminders about these tasks.
 
 ### Versioning
 
@@ -146,11 +146,11 @@ If you encounter any issues or have any questions, feel free to open an issue on
 
 The module has been thoroughly tested. Check the tests folder for test cases covering different functionalities like task creation, updates, assignment, and reminders. You can also check the tesreport for results.
 
-| File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s            |
-|------------------------|---------|----------|---------|---------|------------------------------|
-| All files              |   90.11 |    82.53 |   95.91 |   89.82 |                              |
-| Category.ts            |    92.3 |       80 |     100 |    92.3 | 59                           |
-| NotificationSystem.ts  |      92 |    94.73 |   66.66 |      92 | 34,94                        |
-| Task.ts                |      96 |     92.3 |   95.23 |      96 | 152,175                      |
-| TaskManager.ts         |   87.09 |       68 |     100 |   85.96 | 45,73,92,106,126,144-145,152 |
-| User.ts                |   81.81 |      100 |     100 |   81.81 | 65-66,81-82                  |
+| File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s            |
+| --------------------- | ------- | -------- | ------- | ------- | ---------------------------- |
+| All files             | 90.11   | 82.53    | 95.91   | 89.82   |                              |
+| Category.ts           | 92.3    | 80       | 100     | 92.3    | 59                           |
+| NotificationSystem.ts | 92      | 94.73    | 66.66   | 92      | 34,94                        |
+| Task.ts               | 96      | 92.3     | 95.23   | 96      | 152,175                      |
+| TaskManager.ts        | 87.09   | 68       | 100     | 85.96   | 45,73,92,106,126,144-145,152 |
+| User.ts               | 81.81   | 100      | 100     | 81.81   | 65-66,81-82                  |

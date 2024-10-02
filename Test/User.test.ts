@@ -35,7 +35,7 @@ describe('User', () => {
 
   it('should throw an error if the password is less than 8 characters', async () => {
     await expect(user.createPassword('short')).rejects.toThrow(
-      'Password must be at least 8 characters long.'
+      'Password must be at least 8 characters long.',
     )
     console.log('Password validation works correctly!')
   })

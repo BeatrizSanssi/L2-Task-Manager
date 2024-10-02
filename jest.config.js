@@ -5,4 +5,5 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js'],
   testMatch: ['**/*.test.ts'],
   verbose: true,
-};
+  setupFiles: ['./jest.setup.js'],
+}
