@@ -124,9 +124,10 @@ export class Task {
    * @returns {boolean} - True if the student has completed the task, false otherwise.
   */
   public hasCompleted(): boolean {
+    if (this.status !== 'Completed') {
+      this.markAsCompleted();
+    }
     return this.status === 'Completed';
-    // Mark the task as completed
-    this.markAsCompleted();
   }
 
   /** 
@@ -135,9 +136,10 @@ export class Task {
    * @returns {boolean} - True if the student is currently working on the task, false otherwise.
   */
   public inProgress(): boolean {
+    if (this.status !== 'In progress') {
+      this.markAsInProgress();
+    }
     return this.status === 'In progress';
-    // Mark the task as in progress
-    this.markAsInProgress();
   }
 
   /** 
@@ -146,9 +148,10 @@ export class Task {
    * @returns {boolean} - True if the student has not started the task, false otherwise.
   */
   public notStarted(): boolean {
+    if (this.status !== 'Not started') {
+      this.markAsNotStarted();
+    }
     return this.status === 'Not started';
-    // Mark the task as not started
-    this.markAsNotStarted();
   }
 
   /** 

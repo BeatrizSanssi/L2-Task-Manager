@@ -55,7 +55,7 @@ describe('Task', () => {
       )
     }).toThrow('Invalid task type: InvalidType. Valid task types are: Assignment, Test, Project, Group project')
 
-    console.log('Task type validation works correctly!')
+    console.log('Invalid task type: InvalidType. Valid task types are: Assignment, Test, Project, Group project')
   })
 
   it('should validate task status correctly', () => {
@@ -73,7 +73,7 @@ describe('Task', () => {
         )
       }).toThrow('Invalid status: invalid status. Valid statuses are: Not started, In progress, Completed')
 
-      console.log('Task status validation works correctly!')
+      console.log('Invalid status: `invalid status`. Valid statuses are: Not started, In progress, Completed')
     })
 
   it('should throw an error for an empty title', () => {
@@ -90,6 +90,7 @@ describe('Task', () => {
         new Date('2024-09-05'),
       )
     }).toThrow('Title cannot be empty.')
+    console.log('Title cannot be empty.')
   })
 
   it('should throw an error for an invalid deadline', () => {
@@ -106,5 +107,21 @@ describe('Task', () => {
         new Date('2024-09-06'),
       )
     }).toThrow('Invalid deadline. Please provide a valid date.')
+    console.log('Invalid deadline. Please provide a valid date.')
   })
+  
+  it('should mark task as completed', () => {
+    task.hasCompleted();
+    expect(task.status).toBe('Completed');
+  });
+
+  it('should mark task as in progress', () => {
+    task.inProgress();
+    expect(task.status).toBe('In progress');
+  });
+
+  it('should mark task as not started', () => {
+    task.notStarted();
+    expect(task.status).toBe('Not started');
+  });
 })

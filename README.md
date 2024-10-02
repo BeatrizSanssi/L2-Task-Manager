@@ -145,3 +145,12 @@ If you encounter any issues or have any questions, feel free to open an issue on
 ### Testrapports (Test Reports)
 
 The module has been thoroughly tested. Check the tests folder for test cases covering different functionalities like task creation, updates, assignment, and reminders. You can also check the tesreport for results.
+
+| File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s            |
+|------------------------|---------|----------|---------|---------|------------------------------|
+| All files              |   90.11 |    82.53 |   95.91 |   89.82 |                              |
+| Category.ts            |    92.3 |       80 |     100 |    92.3 | 59                           |
+| NotificationSystem.ts  |      92 |    94.73 |   66.66 |      92 | 34,94                        |
+| Task.ts                |      96 |     92.3 |   95.23 |      96 | 152,175                      |
+| TaskManager.ts         |   87.09 |       68 |     100 |   85.96 | 45,73,92,106,126,144-145,152 |
+| User.ts                |   81.81 |      100 |     100 |   81.81 | 65-66,81-82                  |

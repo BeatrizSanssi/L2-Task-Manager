@@ -17,6 +17,28 @@ describe('TaskManager', () => {
     taskManager = new TaskManager()
   })
 
+  it('should throw error if teacher is not set when creating task', () => {
+    const task = new Task(
+      '1',
+      'Religion',
+      'Assignment',
+      'Teacher',
+      'Task 1',
+      'This is the first task',
+      new Date('2024-11-01'),
+      'Not started',
+      new Date('2024-10-01')
+    );
+  
+    const student = new User('Paul Hanson', 'paul.hanson1@student.lnu.se', 'Student');
+    
+    taskManager.addStudent(student);
+  
+    // Expect an error because no teacher is set
+    expect(() => taskManager.createTask(task)).toThrow('Student or teacher must be set before creating a task.');
+    console.log('Error thrown because teacher is not set when creating task');
+  });
+
   it('should create and assign a task to a student', () => {
     const task = new Task(
       '1',
@@ -54,6 +76,101 @@ describe('TaskManager', () => {
 
     console.log('Task created and assigned to student!', task, student)
   })
+
+  it('should throw error if task with same ID already exists', () => {
+    const task = new Task(
+      '1',
+      'English',
+      'Assignment',
+      'Teacher',
+      'Task 1',
+      'This is the first task',
+      new Date('2024-11-01'),
+      'Not started',
+      new Date('2024-10-01')
+    );
+  
+    const teacher = new User('Maria Johnson', 'maria.johnson@lnu.se', 'Teacher');
+    const student = new User('Paul Hanson', 'paul.hanson1@student.lnu.se', 'Student');
+    
+    taskManager.assignTaskToStudent(task, teacher, student);
+    
+    const newTaskWithSameId = new Task(
+      '1', 
+      'Math',
+      'Test',
+      'Teacher',
+      'Task 2',
+      'This is the second task',
+      new Date('2024-11-15'),
+      'Not started',
+      new Date('2024-10-05')
+    );
+  
+    // Expect an error because a task with the same ID already exists
+    expect(() => taskManager.createTask(newTaskWithSameId)).toThrow('A task with the ID 1 already exists.');
+    console.log('Error thrown because task with same ID already exists');
+  });
+
+  it('should list all tasks', () => {
+    const task1 = new Task(
+      '1',
+      'English',
+      'Assignment',
+      'Teacher',
+      'Task 1',
+      'This is the first task',
+      new Date('2024-10-01'),
+      'Not started',
+      new Date('2024-09-01')
+    );
+  
+    const task2 = new Task(
+      '2',
+      'Math',
+      'Test',
+      'Teacher',
+      'Task 2',
+      'This is the second task',
+      new Date('2024-11-01'),
+      'In progress',
+      new Date('2024-09-02')
+    );
+  
+    const teacher = new User(
+      'Maria Johnson',
+      'maria.johnson@lnu.se',
+      'Teacher'
+    );
+  
+    const student = new User(
+      'Paul Hanson',
+      'paul.hanson1@student.lnu.se',
+      'Student'
+    );
+  
+    taskManager.assignTaskToStudent(task1, teacher, student);
+    taskManager.assignTaskToStudent(task2, teacher, student);
+  
+    const spy = jest.spyOn(console, 'log');
+    
+    taskManager.listTasks();
+  
+    expect(spy).toHaveBeenCalledWith(task1.toString());
+    expect(spy).toHaveBeenCalledWith(task2.toString());
+  
+    spy.mockRestore();
+  });
+
+  it('should log "No tasks available" if no tasks exist', () => {
+    const spy = jest.spyOn(console, 'log');
+    
+    taskManager.listTasks();
+  
+    expect(spy).toHaveBeenCalledWith('No tasks available.');
+  
+    spy.mockRestore();
+  });
 
   it('should update a task successfully', () => {
     const task = new Task(
