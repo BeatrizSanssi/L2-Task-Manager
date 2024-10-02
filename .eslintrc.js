@@ -16,6 +16,10 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['coverage/', 'node_modules/'],
-  rules: {},
+  ignorePatterns: ['coverage/', 'node_modules/', 'dist/'],
+  rules: {
+    'prettier/prettier': 'error',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
 }

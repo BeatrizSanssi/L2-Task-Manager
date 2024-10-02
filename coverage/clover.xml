@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1727895172659" clover="3.2.0">
-  <project timestamp="1727895172659" name="All files">
+<coverage generated="1727897669383" clover="3.2.0">
+  <project timestamp="1727897669383" name="All files">
     <metrics statements="178" coveredstatements="161" conditionals="66" coveredconditionals="55" methods="51" coveredmethods="49" elements="295" coveredelements="265" complexity="0" loc="178" ncloc="178" packages="1" files="5" classes="5"/>
     <file name="Category.ts" path="/Users/beasanssi/Desktop/1dv610/L2/src/Category.ts">
       <metrics statements="13" coveredstatements="12" conditionals="5" coveredconditionals="4" methods="4" coveredmethods="4"/>
