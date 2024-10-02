@@ -1,8 +1,8 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [SemVer](https://semver.org/spec/v2.0.0.html) versioning.
+### 1.0.3 (2024-10-02)
 
 ## [1.0.0] - 2024-10-02
 
@@ -20,3 +20,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 - Nothing yet.
+
+## [1.0.2] - 2024-10-02
+
+### Fixed - 1
+
+- Minor bug fixes and performance improvements.
