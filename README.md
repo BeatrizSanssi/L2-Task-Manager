@@ -209,7 +209,7 @@ If you encounter any issues or bugs, please report them [here](https://github.co
 
 ### License
 
-This project is licensed under the MIT License. See the LICENSE file for more details [MIT License](./LISENCE).
+This project is licensed under the MIT License. See the LICENSE file for more details [MIT License](./LICENSE).
 
 ### Contact
 
