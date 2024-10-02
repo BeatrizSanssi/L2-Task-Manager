@@ -6,3 +6,7 @@
  */
 
 export { TaskManager } from './TaskManager'
+export { Task } from './Task'
+export { User } from './User'
+export { Category } from './Category'
+export { NotificationSystem } from './NotificationSystem'
