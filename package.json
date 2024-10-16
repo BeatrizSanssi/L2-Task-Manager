@@ -21,7 +21,9 @@
   ],
   "author": "Beatriz Sanssi <bs222eh@student.lnu.se>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "uuid": "^10.0.0"
+  },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/jest": "^29.5.13",
@@ -36,7 +38,6 @@
     "standard-version": "^9.5.0",
     "ts-jest": "^29.2.5",
     "typescript": "^5.5.4",
-    "bcrypt": "^5.1.1",
-    "uuid": "^10.0.0"
+    "bcrypt": "^5.1.1"
   }
 }
