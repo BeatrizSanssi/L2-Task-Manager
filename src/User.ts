@@ -12,7 +12,8 @@ import { v4 as uuidv4 } from 'uuid'
 
 export class User {
   userId: string
-  name: string
+  first_name: string
+  last_name: string
   email: string
   role: 'Student' | 'Teacher'
   private hashedPassword!: string // The hashed password marked as 'being set later'
@@ -21,13 +22,20 @@ export class User {
    * Constructs a new User instance.
    * Automatically generates a unique ID for each user.
    *
-   * @param {string} name - The name of the user.
+   * @param {string} first_name - The first name of the user.
+   * @param {string} last_name - The last name of the user.
    * @param {string} email - The email of the user.
    * @param {'Student' | 'Teacher'} role - The role of the user, either 'Student' or 'Teacher'.
    */
-  constructor(name: string, email: string, role: 'Student' | 'Teacher') {
+  constructor(
+    first_name: string,
+    last_name: string,
+    email: string,
+    role: 'Student' | 'Teacher',
+  ) {
     this.userId = uuidv4() // Generate a random id
-    this.name = name
+    this.first_name = first_name
+    this.last_name = last_name
     this.email = email
     this.role = role
   }
@@ -60,7 +68,7 @@ export class User {
       this.hashedPassword = await bcrypt.hash(password, saltRounds)
       this.assignRole(this.role)
       console.log(
-        `User ${this.name} with role ${this.role} has been created with a hashed password.`,
+        `User ${this.first_name}\n${this.last_name}  with role ${this.role} has been created with a hashed password.`,
       )
     } catch (error) {
       console.error('Error hashing password:', error)

@@ -73,11 +73,11 @@ export class TaskManager {
       throw new Error('Only teachers can assign tasks.')
     }
     this.teacher = teacher
-    task.author = teacher.name
+    task.author = teacher.first_name + ' ' + teacher.last_name
     this.addStudent(student)
     this.createTask(task)
     console.log(
-      `${this.student.name} has been assigned the task: ${task.title}`,
+      `${this.student.first_name}\n ${this.student.last_name} has been assigned the task: ${task.title}`,
     )
   }
 
@@ -147,7 +147,7 @@ export class TaskManager {
    * @param {Task} task - The task associated with the notification.
    */
   notifyStudent(student: User, notificationType: string, task: Task): void {
-    if (!student || !student.name) {
+    if (!student || !student.first_name + student.last_name) {
       console.error(
         'Invalid student object or student name is missing',
         student,
@@ -156,7 +156,7 @@ export class TaskManager {
     }
 
     this.notificationSystem.sendNotification({
-      recipient: student.name,
+      recipient: student.first_name + student.last_name,
       taskTitle: task.title,
       category: task.category,
       taskType: task.taskType,
@@ -171,7 +171,7 @@ export class TaskManager {
    * @param {User} student - The student to be added.
    */
   addStudent(student: User): void {
-    if (student && student.name) {
+    if (student && student.first_name + student.last_name) {
       this.student = student
     } else {
       console.error('No student object provided')
@@ -193,7 +193,7 @@ export class TaskManager {
       this.notificationSystem.setNotificationType('taskReminder')
       this.notifyStudent(this.student, 'taskReminder', task)
       console.log(
-        `Reminder sent to ${this.student.name} for unstarted task: ${task.title}.`,
+        `Reminder sent to ${this.student.first_name}\n${this.student.last_name} for unstarted task: ${task.title}.`,
       )
     }
   }
@@ -213,7 +213,7 @@ export class TaskManager {
       this.notificationSystem.setNotificationType('upComingTask')
       this.notifyStudent(this.student, 'upComingTask', task)
       console.log(
-        `Reminder sent to ${this.student.name} for Deadline approaching for task: ${task.title}.`,
+        `Reminder sent to ${this.student.first_name}\n${this.student.last_name} for Deadline approaching for task: ${task.title}.`,
       )
     }
   }
