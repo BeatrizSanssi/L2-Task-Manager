@@ -1,6 +1,6 @@
 {
   "name": "task-management-system",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple task management system for students and teachers.",
   "main": "dist/src/index.js",
   "types": "src/index.ts",
