@@ -1,7 +1,7 @@
 # Test Report for Task Management System
 
-| Test Case | What is Being Tested                        |  Result                                             | Date Conducted | Result Image                                                                                                  |
-| --------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------- |
+| Test Case | What is Being Tested |  Result | Date Conducted | Result Image |
+|-----------|----------------------|---------|----------------|--------------|
 | **1**     | Create a task and assign it to a student    | Passed | 2024-09-26     | ![Task Created and Assigned To Student](./Test/ReportPictures/newTaskCreatedAndAssigned.png)                  |
 | **2**     | Create a user                               | Passed | 2024-09-23     | ![User Created](./Test/ReportPictures/createPasswordAndAssignRole.png)                                        |
 | **3**     | Send notification to student                | Passed | 2024-09-30     | ![Notification Sent](./Test/ReportPictures/notification.png)                                                  |
