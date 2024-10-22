@@ -10,7 +10,7 @@ module.exports = {
     'default',
     ['jest-html-reporter', {
       pageTitle: 'Test Report',
-      outputPath: './Test/Report/test-report.html',
+      outputPath: './docs/Report/test-report.html',
       includeFailureMsg: true,
       includeConsoleLog: true,
       sort: 'status'

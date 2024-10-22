@@ -1,0 +1,14 @@
+src/
+test/
+node_modules/
+tsconfig.json
+jest.config.js
+Testreport.md
+Reflection.md
+.prettierrc
+.dist/
+coverage/
+.eslintrc.js
+.eslintignore
+.gitignore
+jest.setup.js
