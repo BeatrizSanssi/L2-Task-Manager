@@ -108,7 +108,7 @@ export class TaskManager {
       throw new Error(`Task with ID ${taskId} not found among completed tasks.`)
     }
 
-    gradedTask.grade = grade
+    this.grade = grade
     this.notificationSystem.setNotificationType('taskGraded')
     this.notifyStudent(student, 'taskGraded', gradedTask)
 

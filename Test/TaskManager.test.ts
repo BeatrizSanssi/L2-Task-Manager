@@ -27,10 +27,13 @@ describe('TaskManager', () => {
       new Date('2024-11-01'),
       'Not started',
       new Date('2024-10-01'),
+      'Not graded',
     )
 
     const student = new User(
-      'Paul Hanson',
+      'id2001',
+      'Paul',
+      'Hanson',
       'paul.hanson1@student.lnu.se',
       'Student',
     )
@@ -55,11 +58,21 @@ describe('TaskManager', () => {
       new Date('Deadline: 2024-10-01'),
       'Not started',
       new Date('Created at 2024-09-01'),
+      'Not graded',
     )
 
-    const teacher = new User('Maria Johnson', 'maria.johnson@lnu.se', 'Teacher')
+    const teacher = new User(
+      'id7T003',
+      'Maria',
+      'Johnson',
+      'maria.johnson@lnu.se',
+      'Teacher',
+    )
+
     const student = new User(
-      'Paul Hanson',
+      'id2001',
+      'Paul',
+      'Hanson',
       'paul.hanson1@student.lnu.se',
       'Student',
     )
@@ -89,11 +102,21 @@ describe('TaskManager', () => {
       new Date('2024-11-01'),
       'Not started',
       new Date('2024-10-01'),
+      'Not graded',
     )
 
-    const teacher = new User('Maria Johnson', 'maria.johnson@lnu.se', 'Teacher')
+    const teacher = new User(
+      'id7T003',
+      'Maria',
+      'Johnson',
+      'maria.johnson@lnu.se',
+      'Teacher',
+    )
+
     const student = new User(
-      'Paul Hanson',
+      'id2001',
+      'Paul',
+      'Hanson',
       'paul.hanson1@student.lnu.se',
       'Student',
     )
@@ -110,6 +133,7 @@ describe('TaskManager', () => {
       new Date('2024-11-15'),
       'Not started',
       new Date('2024-10-05'),
+      'Not graded',
     )
 
     // Expect an error because a task with the same ID already exists
@@ -130,6 +154,7 @@ describe('TaskManager', () => {
       new Date('2024-10-01'),
       'Not started',
       new Date('2024-09-01'),
+      'Not graded',
     )
 
     const task2 = new Task(
@@ -142,12 +167,21 @@ describe('TaskManager', () => {
       new Date('2024-11-01'),
       'In progress',
       new Date('2024-09-02'),
+      'Not graded',
     )
 
-    const teacher = new User('Maria Johnson', 'maria.johnson@lnu.se', 'Teacher')
+    const teacher = new User(
+      'id7T003',
+      'Maria',
+      'Johnson',
+      'maria.johnson@lnu.se',
+      'Teacher',
+    )
 
     const student = new User(
-      'Paul Hanson',
+      'id2001',
+      'Paul',
+      'Hanson',
       'paul.hanson1@student.lnu.se',
       'Student',
     )
@@ -186,11 +220,21 @@ describe('TaskManager', () => {
       new Date('2024-10-01'),
       'Not started',
       new Date('2024-09-01'),
+      'Not graded',
     )
 
-    const teacher = new User('Maria Johnson', 'maria.johnson@lnu.se', 'Teacher')
+    const teacher = new User(
+      'id7T003',
+      'Maria',
+      'Johnson',
+      'maria.johnson@lnu.se',
+      'Teacher',
+    )
+
     const student = new User(
-      'Paul Hanson',
+      'id2001',
+      'Paul',
+      'Hanson',
       'paul.hanson1@student.lnu.se',
       'Student',
     )
@@ -206,6 +250,7 @@ describe('TaskManager', () => {
       new Date('2024-11-01'),
       'In progress',
       new Date('2024-09-01'),
+      'Not graded',
     )
 
     taskManager.updateTask(task.taskId, updatedTask)
@@ -229,11 +274,20 @@ describe('TaskManager', () => {
       new Date('2024-10-01'),
       'Not started',
       new Date('2024-09-01'),
+      'Not graded',
     )
 
-    const teacher = new User('Maria Johnson', 'maria.johnson@lnu.se', 'Teacher')
+    const teacher = new User(
+      'id7T003',
+      'Maria',
+      'Johnson',
+      'maria.johnson@lnu.se',
+      'Teacher',
+    )
     const student = new User(
-      'Paul Hanson',
+      'id2001',
+      'Paul',
+      'Hanson',
       'paul.hanson1@student.lnu.se',
       'Student',
     )
@@ -263,10 +317,20 @@ describe('TaskManager', () => {
       new Date('2024-10-01'),
       'Not started',
       new Date('2024-08-01'),
+      'Not graded',
     )
-    const teacher = new User('Maria Johnson', 'maria.johnson@lnu.se', 'Teacher')
+    const teacher = new User(
+      'id7T003',
+      'Maria',
+      'Johnson',
+      'maria.johnson@lnu.se',
+      'Teacher',
+    )
+
     const student = new User(
-      'Paul Hanson',
+      'id2001',
+      'Paul',
+      'Hanson',
       'paul.hanson1@student.lnu.se',
       'Student',
     )
@@ -278,7 +342,9 @@ describe('TaskManager', () => {
     taskManager.remindAboutUnstartedTask(oldTask)
 
     // Check if the student was reminded about the task
-    console.log(`Notification sent to ${student.name}:`)
+    console.log(
+      `Notification sent to ${student.first_name + ' ' + student.last_name}:`,
+    )
     console.log(`Task: ${oldTask.title}`)
     console.log(`Category: ${oldTask.category}`)
     console.log(`Type: ${oldTask.taskType}`)
@@ -300,12 +366,21 @@ describe('TaskManager', () => {
       new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
       'Not started',
       new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
+      'Not graded',
     )
 
-    const teacher = new User('Maria Johnson', 'maria.johnson@lnu.se', 'Teacher')
+    const teacher = new User(
+      'id7T003',
+      'Maria',
+      'Johnson',
+      'maria.johnson@lnu.se',
+      'Teacher',
+    )
 
     const student = new User(
-      'Paul Hanson',
+      'id2001',
+      'Paul',
+      'Hanson',
       'paul.hanson1@student.lnu.se',
       'Student',
     )

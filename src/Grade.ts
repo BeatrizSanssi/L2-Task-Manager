@@ -9,65 +9,65 @@
  */
 
 export class Grade {
-  name: string
+  value: string
 
   private static validGrades: string[] = ['A', 'B', 'C', 'D', 'E', 'F']
 
   /**
-   * Constructs a new Grade instance and validates the provided name.
+   * Constructs a new Grade instance and validates the provided value.
    *
-   * @param {string} name - The name of the grade.
+   * @param {string} value - The value of the grade.
    * @throws {Error} - Throws an error if the grade is invalid.
    */
-  constructor(name: string) {
-    this.name = this.validateGrade(name)
+  constructor(value: string) {
+    this.value = this.validateGrade(value)
   }
 
   /**
-   * Validates that the provided grade name is not empty and exists in the list
+   * Validates that the provided grade value is not empty and exists in the list
    * of valid grades.
    *
    * @private
-   * @param {string} name - The name of the grade to validate.
-   * @returns {string} - The validated grade name.
-   * @throws {Error} - Throws an error if the grade name is empty or invalid.
+   * @param {string} value - The value of the grade to validate.
+   * @returns {string} - The validated grade value.
+   * @throws {Error} - Throws an error if the grade value is empty or invalid.
    */
-  private validateGrade(name: string): string {
-    if (!name || name.trim().length === 0) {
-      throw new Error('Grade name cannot be empty.')
+  private validateGrade(value: string): string {
+    if (!value || value.trim().length === 0) {
+      throw new Error('Grade value cannot be empty.')
     }
 
-    // Ensure the grade name is in the list of valid grades
-    if (!Grade.validGrades.includes(name)) {
-      throw new Error('Invalid grade name.')
+    // Ensure the grade value is in the list of valid grades
+    if (!Grade.validGrades.includes(value)) {
+      throw new Error('Invalid grade value.')
     }
 
-    return name
+    return value
   }
 
   /**
-   * Sets the grade name to a new valid category.
+   * Sets the grade value to a new valid grade.
    *
-   * @param {string} newName - The new grade name to set.
-   * @throws {Error} - Throws an error if the new grade name is invalid.
+   * @param {string} newValue - The new grade value to set.
+   * @throws {Error} - Throws an error if the new grade value is invalid.
    */
-  public setGradeName(newName: string): void {
-    if (!Grade.validGrades.includes(newName)) {
+  public setGradeValue(newValue: string): void {
+    if (!Grade.validGrades.includes(newValue)) {
       throw new Error(
-        `Invalid grade name: ${newName}. Please choose from the valid grades.`,
+        `Invalid grade value: ${newValue}. Please choose from the valid grades.`,
       )
     }
 
-    this.name = newName
-    console.log(`Grade name updated to: ${this.name}`)
+    this.value = newValue
+    console.log(`Grade value updated to: ${this.value}`)
   }
 
   /**
-   * Returns the grade name as a string.
+   * Returns the grade value as a string.
    *
-   * @returns {string} - The grade name.
+   * @returns {string} - The grade value.
    */
   toString(): string {
-    return this.name
+    return this.value
   }
 }

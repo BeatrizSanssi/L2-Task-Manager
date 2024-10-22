@@ -39,7 +39,6 @@ export class Category {
    * Validates that the provided category name is not empty and exists in the list
    * of valid categories.
    *
-   * @private
    * @param {string} name - The name of the category to validate.
    * @returns {string} - The validated category name.
    * @throws {Error} - Throws an error if the category name is empty or invalid.

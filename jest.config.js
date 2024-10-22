@@ -6,4 +6,14 @@ module.exports = {
   testMatch: ['**/*.test.ts'],
   verbose: true,
   setupFiles: ['./jest.setup.js'],
+  reporters: [
+    'default',
+    ['jest-html-reporter', {
+      pageTitle: 'Test Report',
+      outputPath: './Test/Report/test-report.html',
+      includeFailureMsg: true,
+      includeConsoleLog: true,
+      sort: 'status'
+    }]
+  ]
 }

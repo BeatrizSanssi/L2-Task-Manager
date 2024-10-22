@@ -14,6 +14,21 @@ The **Task Management System** is a simple module that helps manage tasks for st
 - **Task Deletion**: Remove tasks and notify users when tasks are deleted.
 - **Status management**: Track the status of tasks (not started, in progress, completed).
 
+### USP (Unique Selling Point)
+
+**What does the module do?**
+
+- Creates and manages tasks and users.
+- Assigns tasks to specific users.
+- Automatically sends reminders when a task has not been started or when a deadline is approaching.
+- Provides an API to interact with the system for creating, updating, and deleting tasks.
+
+**What does the module not do?**
+
+- It does not manage large backend databases or complex storage solutions.
+- It does not provide any frontend or user interface components.
+- The focus is on business logic and easy API usage, not on visual components or user interfaces.
+
 ## Public API
 
 The following classes and methods are intended for use by developers integrating this module:
@@ -67,7 +82,37 @@ Responsible for managing tasks, assigning tasks to users, and handling notificat
   - `notificationType` (string): The type of notification (e.g., `newTask`, `taskReminder` etc.).
   - `task` (Task): The task related to the notification.
 
+  ```typescript
+    /**
+   * Sends a notification to the student regarding a task.
+   * Ensures the student and task information is valid.
+   * If the notification type is not found, it logs an error message.
+   *
+   * @param {User} student - The student to notify.
+   * @param {string} message - The message to send.
+   * @param {string} notificationType - The task associated with the notification.
+   * @param {Task} task - The task associated with the notification.
+   */
+  notifyStudent(student: User, notificationType: string, task: Task): void {
+    if (!student || !student.first_name + student.last_name) {
+      console.error(
+        'Invalid student object or student name is missing',
+        student,
+      )
+      return
+    }
+
+    this.notificationSystem.sendNotification({
+      recipient: student.first_name + student.last_name,
+      taskTitle: task.title,
+      category: task.category,
+      taskType: task.taskType,
+      deadline: task.deadline,
+    })
+  }
+
 - **addStudent(student: User): void**  
+
   Adds a student to the task manager.
 
   Parameters:
@@ -94,15 +139,36 @@ Represents a student or teacher.
 
 #### User Methods
 
-- **createPassword(password: string): Promise< void >**
-  Creates and hashes the users password.
+- **setPassword(password: string): Promise< void >**
+  Sets the users password.
 
   Parameters:
 
-  - `password` (string): The password to create.
+  - `password` (string): The password to set.
+
+  ```typescript
+    /**
+   * Sets the users password.
+   *
+   * @param {string} password - The user's password to store.
+   * @throws {Error} - If the password is invalid.
+   */
+  async setPassword(password: string): Promise<void> {
+    if (!this.isValidPassword(password)) {
+      throw new Error('Password must be at least 8 characters long.')
+    }
+
+    this.password = password
+    this.assignRole(this.role)
+    console.log(
+      `User ${this.first_name} ${this.last_name} with role ${this.role} has been created.`,
+    )
+  }
+
 
 - **checkPassword(password: string): Promise< void >**  
-  Verifies whether the provided password matches the stored hashed password.
+
+  Verifies whether the provided password matches the stored password.
 
   Parameters:
 
@@ -136,6 +202,27 @@ Represents a task with fields like ID, category, type, title, description, deadl
 - **toString(): string**  
   Returns a string representation of the task.
 
+  ```typescript
+    /**
+   * Returns a string representation of the task, including all key fields
+   * such as task ID, category, author, title, description, status, deadline, createdAt, and grade.
+   *
+   * @returns {string} - A string representing the task.
+   */
+  toString(): string {
+    return `Task ID: ${this.taskId}, 
+    Category: ${this.category}, 
+    Type: ${this.taskType}, 
+    Author: ${this.author}, 
+    Title: ${this.title}, 
+    Description: ${this.description}, 
+    Status: ${this.status}, 
+    Deadline: ${this.deadline}, 
+    Created At: ${this.createdAt},
+    Grade: ${this.grade}`
+  }
+
+
 ### Category
 
 Represents the task’s category (e.g., English, Math).
@@ -149,7 +236,27 @@ Represents the task’s category (e.g., English, Math).
 
   - `newName` (string): The catagory name to set.
 
+  ```typescript
+    /**
+   * Sets the category name to a new valid category.
+   *
+   * @param {string} newName - The new category name to set.
+   * @throws {Error} - Throws an error if the new category name is invalid.
+   */
+  public setCategoryName(newName: string): void {
+    if (!Category.validCategories.includes(newName)) {
+      throw new Error(
+        `Invalid category name: ${newName}. Please choose from the valid categories.`,
+      )
+    }
+
+    this.name = newName
+    console.log(`Category name updated to: ${this.name}`)
+  }
+
+
 - **toString(): string**  
+
   Returns the category name as a string.
 
 ### Notification System
@@ -165,12 +272,7 @@ Handles task notifications.
 
   - `type` (string): The new notification type.
 
-- **sendNotification(notificationDetails: {
-  recipient: string
-  taskTitle: string
-  category: string
-  taskType: string
-  deadline: Date}): void**  
+- **sendNotification(notificationDetails: {recipient: string, taskTitle: string, category: string, taskType: string, deadline: Date}): void**  
   Sends a notification to a recipient with task details.
 
   Parameters:
@@ -183,6 +285,41 @@ Handles task notifications.
 
 - **toString(): string**  
   Returns the type of the notification as a string.
+
+### Grade
+
+Handles the grading of completed tasks.
+
+#### Grade Methods
+
+- **setGradeValue(newValue: string): void**  
+  Sets the grade value to a valid grade.
+
+  Parameters:
+
+  - `newValue` (string): The new grade value to set.
+
+  ```typescript
+    /**
+     * Sets the grade value to a new valid grade.
+     *
+     * @param {string} newValue - The new grade value to set.
+     * @throws {Error} - Throws an error if the new grade value is invalid.
+     */
+    public setGradeValue(newValue: string): void {
+      if (!Grade.validGrades.includes(newValue)) {
+        throw new Error(
+          `Invalid grade value: ${newValue}. Please choose from the valid grades.`,
+        )
+      }
+
+      this.value = newValue
+      console.log(`Grade value updated to: ${this.value}`)
+    } 
+    
+- **toString(): string**  
+
+  Returns the grade value as a string.
 
 ## Testing
 
@@ -229,21 +366,6 @@ For any questions or suggestions, feel free to contact Beatriz Sanssi <bs222eh@s
 - Student must be able to be notified about a tasks upcomming deadline
 - Student must be able to update the status of the task to 'in progress' or 'completed'
 - Students must be able to be notified with a remainder about a unstarted task
-
-### USP (Unique Selling Point)
-
-**What does the module do?**
-
-- Creates and manages tasks and users.
-- Assigns tasks to specific users.
-- Automatically sends reminders when a task has not been started or when a deadline is approaching.
-- Provides an API to interact with the system for creating, updating, and deleting tasks.
-
-**What does the module not do?**
-
-- It does not manage large backend databases or complex storage solutions.
-- It does not provide any frontend or user interface components.
-- The focus is on business logic and easy API usage, not on visual components or user interfaces.
 
 ### Installation
 

@@ -13,7 +13,7 @@ export class User {
   last_name: string
   email: string
   role: 'Student' | 'Teacher'
-  private password!: string // The hashed password marked as 'being set later'
+  private password!: string // The password marked as 'being set later'
 
   /**
    * Constructs a new User instance.
@@ -31,7 +31,7 @@ export class User {
     email: string,
     role: 'Student' | 'Teacher',
   ) {
-    this.userId = userId // Generate a random id
+    this.userId = userId
     this.first_name = first_name
     this.last_name = last_name
     this.email = email
@@ -54,7 +54,7 @@ export class User {
    * @param {string} password - The user's password to store.
    * @throws {Error} - If the password is invalid.
    */
-  setPassword(password: string): void {
+  async setPassword(password: string): Promise<void> {
     if (!this.isValidPassword(password)) {
       throw new Error('Password must be at least 8 characters long.')
     }
@@ -70,10 +70,10 @@ export class User {
    * Verifies whether the provided password matches the stored password.
    *
    * @param {string} password - The password to verify.
-   * @returns {boolean} - Returns true if the password matches, false otherwise.
+   * @returns {Promise<boolean>} - Returns true if the password matches, false otherwise.
    * @throws {Error} - If the password comparison fails.
    */
-  checkPassword(password: string): boolean {
+  async checkPassword(password: string): Promise<boolean> {
     return this.password === password
   }
 

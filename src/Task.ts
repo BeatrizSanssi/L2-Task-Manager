@@ -8,8 +8,6 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
-import { Grade } from './Grade'
-
 export class Task {
   taskId!: string
   category!: string
@@ -20,7 +18,7 @@ export class Task {
   deadline!: Date
   status!: 'Not started' | 'In progress' | 'Completed'
   createdAt: Date
-  grade: Grade | null
+  grade!: string
 
   private static validTaskTypes = [
     'Assignment',
@@ -41,7 +39,7 @@ export class Task {
    * @param {Date} deadline - The deadline by which the task should be completed.
    * @param {string} status - The current status of the task (must be one of the valid statuses).
    * @param {Date} createdAt - The date when the task was created.
-   * @param {Grade} grade - The grade of the task.
+   * @param {string} grade - The grade of the task.
    */
   constructor(
     taskId: string,
@@ -53,7 +51,7 @@ export class Task {
     deadline: Date,
     status: string,
     createdAt: Date,
-    grade: Grade | null = null,
+    grade: string,
   ) {
     this.addTaskId(taskId)
     this.addCategory(category)
@@ -65,7 +63,7 @@ export class Task {
     this.addDescription(description)
     this.addDeadline(deadline)
     this.addStatus(status as 'Not started' | 'In progress' | 'Completed')
-    this.grade = grade
+    this.addGrade(grade)
 
     this.createdAt = createdAt
   }
@@ -268,7 +266,7 @@ export class Task {
    *
    * @param {Grade} grade - The grade to add to the task.
    */
-  private addGrade(grade: Grade): void {
+  private addGrade(grade: string): void {
     this.grade = grade
   }
 
@@ -284,7 +282,7 @@ export class Task {
 
   /**
    * Returns a string representation of the task, including all key fields
-   * such as task ID, category, author, title, description, status, deadline, and createdAt.
+   * such as task ID, category, author, title, description, status, deadline, createdAt, and grade.
    *
    * @returns {string} - A string representing the task.
    */
@@ -298,6 +296,6 @@ export class Task {
     Status: ${this.status}, 
     Deadline: ${this.deadline}, 
     Created At: ${this.createdAt},
-    Grade: ${this.grade ? this.grade.toString() : 'Not graded yet'}`
+    Grade: ${this.grade}`
   }
 }

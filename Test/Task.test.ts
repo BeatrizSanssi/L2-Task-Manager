@@ -21,6 +21,7 @@ describe('Task', () => {
       new Date('2024-10-01'),
       'Not started',
       new Date('2024-09-01'),
+      'Not graded',
     )
   })
 
@@ -52,6 +53,7 @@ describe('Task', () => {
         new Date('2024-11-01'),
         'Not started',
         new Date('2024-09-02'),
+        'Not graded',
       )
     }).toThrow(
       'Invalid task type: InvalidType. Valid task types are: Assignment, Test, Project, Group project',
@@ -74,6 +76,7 @@ describe('Task', () => {
         new Date('2024-12-01'),
         'invalid status',
         new Date('2024-09-03'),
+        'Not graded',
       )
     }).toThrow(
       'Invalid status: invalid status. Valid statuses are: Not started, In progress, Completed',
@@ -96,6 +99,7 @@ describe('Task', () => {
         new Date('2024-10-15'),
         'Not started',
         new Date('2024-09-05'),
+        'Not graded',
       )
     }).toThrow('Title cannot be empty.')
     console.log('Title cannot be empty.')
@@ -113,6 +117,7 @@ describe('Task', () => {
         new Date('invalid-date'),
         'Not started',
         new Date('2024-09-06'),
+        'Not graded',
       )
     }).toThrow('Invalid deadline. Please provide a valid date.')
     console.log('Invalid deadline. Please provide a valid date.')
