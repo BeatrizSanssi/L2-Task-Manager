@@ -44,6 +44,8 @@ export class NotificationSystem {
         return 'Reminder: You have a task you haven’t started working on.'
       case 'taskCompleted':
         return 'A task you were assigned has been completed.'
+      case 'taskGraded':
+        return 'A task you completed has been graded.'
       case 'newMessage':
         return 'You have received a new message!'
       default:

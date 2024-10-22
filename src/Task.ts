@@ -8,6 +8,8 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 
+import { Grade } from './Grade'
+
 export class Task {
   taskId!: string
   category!: string
@@ -18,6 +20,7 @@ export class Task {
   deadline!: Date
   status!: 'Not started' | 'In progress' | 'Completed'
   createdAt: Date
+  grade: Grade | null
 
   private static validTaskTypes = [
     'Assignment',
@@ -38,6 +41,7 @@ export class Task {
    * @param {Date} deadline - The deadline by which the task should be completed.
    * @param {string} status - The current status of the task (must be one of the valid statuses).
    * @param {Date} createdAt - The date when the task was created.
+   * @param {Grade} grade - The grade of the task.
    */
   constructor(
     taskId: string,
@@ -49,6 +53,7 @@ export class Task {
     deadline: Date,
     status: string,
     createdAt: Date,
+    grade: Grade | null = null,
   ) {
     this.addTaskId(taskId)
     this.addCategory(category)
@@ -60,6 +65,7 @@ export class Task {
     this.addDescription(description)
     this.addDeadline(deadline)
     this.addStatus(status as 'Not started' | 'In progress' | 'Completed')
+    this.grade = grade
 
     this.createdAt = createdAt
   }
@@ -258,6 +264,15 @@ export class Task {
   }
 
   /**
+   * Adds a grade to the task after validating it is not empty.
+   *
+   * @param {Grade} grade - The grade to add to the task.
+   */
+  private addGrade(grade: Grade): void {
+    this.grade = grade
+  }
+
+  /**
    * Adds a status to the task after validating it is not empty.
    *
    * @param {string} status - The status to add to the task.
@@ -282,6 +297,7 @@ export class Task {
     Description: ${this.description}, 
     Status: ${this.status}, 
     Deadline: ${this.deadline}, 
-    Created At: ${this.createdAt}`
+    Created At: ${this.createdAt},
+    Grade: ${this.grade ? this.grade.toString() : 'Not graded yet'}`
   }
 }

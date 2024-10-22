@@ -11,13 +11,22 @@ import { Task } from './Task'
 import { NotificationSystem } from './NotificationSystem'
 import { User } from './User'
 import { Category } from './Category'
+import { Grade } from './Grade'
+
+// interface TaskGrade {
+//   taskId: string
+//   student: User
+//   grade: Grade
+// }
 
 export class TaskManager {
   tasks: Task[]
+  // taskGrades: TaskGrade[] = []
   notificationSystem!: NotificationSystem // Mark the property as 'being set later'
   teacher!: User // Mark the property as 'being set later'
   student!: User // Mark the property as 'being set later'
   category!: Category // Mark the property as 'being set later'
+  grade!: Grade // Mark the property as 'being set later'
 
   private assignedTasks: Task[] = []
 
@@ -78,6 +87,33 @@ export class TaskManager {
     this.createTask(task)
     console.log(
       `${this.student.first_name}\n ${this.student.last_name} has been assigned the task: ${task.title}`,
+    )
+  }
+
+  /**
+   * Grades a task for a student by searching for tasks with the status 'Completed'.
+   *
+   * @param {string} taskId - The ID of the task to grade.
+   * @param {User} student - The student who completed the task.
+   * @param {Grade} grade - The grade to assign to the task.
+   */
+  gradeTask(taskId: string, student: User, grade: Grade): void {
+    const completedTasks = this.tasks.filter(
+      (task) => task.status === 'Completed',
+    )
+
+    const gradedTask = completedTasks.find((task) => task.taskId === taskId)
+
+    if (!gradedTask) {
+      throw new Error(`Task with ID ${taskId} not found among completed tasks.`)
+    }
+
+    gradedTask.grade = grade
+    this.notificationSystem.setNotificationType('taskGraded')
+    this.notifyStudent(student, 'taskGraded', gradedTask)
+
+    console.log(
+      `Task ${taskId} graded for student ${student.first_name} ${student.last_name}.`,
     )
   }
 
