@@ -12,14 +12,23 @@ import { Category } from '../src/Category'
 import { TaskManager } from '../src/TaskManager'
 
 // Create a new user
-const user = new User('Paul Hanson', 'paul.hanson1@student.lnu.se', 'Student')
+const user = new User(
+  'id2001',
+  'Paul',
+  'Hanson',
+  'paul.hanson1@student.lnu.se',
+  'Student',
+)
 console.log('User created:', user)
 
 // Create a password for the user
 async function setupUserPassword() {
   try {
-    await user.createPassword('mySecurePassword')
-    console.log('Password has been set for:', user.name)
+    await user.setPassword('mySecurePassword')
+    console.log(
+      'Password has been set for:',
+      user.first_name + ' ' + user.last_name,
+    )
 
     // Check if the password is correct
     const isPasswordCorrect = await user.checkPassword('mySecurePassword')
@@ -66,6 +75,7 @@ const task1 = new Task(
   new Date('Deadline: 2024-12-01'),
   'Not started',
   new Date('Created at 2024-09-30'),
+  'Not graded',
 )
 
 console.log('Task created:', task1)
@@ -74,10 +84,10 @@ console.log('Task created:', task1)
 const taskManager = new TaskManager()
 taskManager.assignTaskToStudent(
   task1,
-  new User('Maria Johnson', 'maria.Johnson@lnu.com', 'Teacher'),
+  new User('id7T003', 'Maria', 'Johnson', 'maria.Johnson@lnu.com', 'Teacher'),
   user,
 )
-console.log('Task assigned to student:', user.name)
+console.log('Task assigned to student:', user.first_name + '' + user.last_name)
 
 // Add task to the task manager
 taskManager.notifyStudent(user, 'newTask', task1)

@@ -2,17 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.0.11](https://github.com/BeatrizSanssi/L2-Task-Manager/compare/v1.0.10...v1.0.11) (2024-10-23)
-
 ## [1.0.10](https://github.com/BeatrizSanssi/L2-Task-Manager/compare/v1.0.9...v1.0.10) (2024-10-23)
 
-### Update
+### Update [1.0.10]
 
 Added link to testreport. Added Github Actions to attach report as an artifact
 
 ## [1.0.9](https://github.com/BeatrizSanssi/L2-Task-Manager/compare/v1.0.8...v1.0.9) (2024-10-22)
 
-### Update
+### Update [1.0.9]
 
 Added new class `Grade` and added grade field to taskmanager. Added tests for grade class and updated user test and taskmanager test to use the new fields in `User`-class
 

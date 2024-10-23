@@ -329,10 +329,6 @@ To test the module, you can run the following command:
 npm run test
 ```
 
-### Test Reports
-
-[Link Text](https://beatrizsanssi.github.io/L2-Task-Manager/Report/test-report.html)
-
 ## Contribution
 
 If you want to contribute to the development of this module, feel free to fork the repository and create a pull request. Please make sure your code is well-documented and that it follows the existing coding standards.
@@ -410,13 +406,6 @@ If you encounter any issues or have any questions, feel free to open an issue on
 
 ### Test Reports
 
-The module has been thoroughly tested. Check the tests folder for test cases covering different functionalities like task creation, updates, assignment, and reminders (./Test). You can also check the tesreport for results.
+The module has been thoroughly tested. Check the tests folder for test cases covering different functionalities like task creation, updates, assignment, and reminders (./Test).
 
-| File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s        |
-| --------------------- | ------- | -------- | ------- | ------- | ------------------------ |
-| All files             | 90.65   | 83.33    | 96.07   | 90.44   |                          |
-| Category.ts           | 92.3    | 80       | 100     | 92.3    | 68                       |
-| NotificationSystem.ts | 90.32   | 91.3     | 80      | 90.32   | 46-48,133                |
-| Task.ts               | 96      | 92.3     | 95.23   | 96      | 162,185                  |
-| TaskManager.ts        | 89.39   | 70.83    | 100     | 88.7    | 46,73,98,115,151-155,177 |
-| User.ts               | 81.81   | 100      | 100     | 81.81   | 66-67,82-83              |
+[Link to Test Report](https://beatrizsanssi.github.io/L2-Task-Manager/Report/test-report.html)
