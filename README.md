@@ -331,7 +331,7 @@ npm run test
 
 ### Test Reports
 
-`https://beatrizsanssi.github.io/L2-Task-Manager/Report/test-report.html`
+[Link Text](https://beatrizsanssi.github.io/L2-Task-Manager/Report/test-report.html)
 
 ## Contribution
 

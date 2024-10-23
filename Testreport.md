@@ -4,7 +4,7 @@
 
 - **For viewing the latest tests, please visit this link**
 
-- `https://beatrizsanssi.github.io/L2-Task-Manager/Report/test-report.html`
+[Link Text](https://beatrizsanssi.github.io/L2-Task-Manager/Report/test-report.html)
 
 | Test Case | What is Being Tested |  Result | Date Conducted | Result Image |
 |-----------|----------------------|---------|----------------|--------------|
