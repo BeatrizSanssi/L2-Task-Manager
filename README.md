@@ -329,6 +329,10 @@ To test the module, you can run the following command:
 npm run test
 ```
 
+### Test Reports
+
+`https://beatrizsanssi.github.io/L2-Task-Manager/Report/test-report.html`
+
 ## Contribution
 
 If you want to contribute to the development of this module, feel free to fork the repository and create a pull request. Please make sure your code is well-documented and that it follows the existing coding standards.

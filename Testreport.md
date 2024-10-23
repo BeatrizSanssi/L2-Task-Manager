@@ -1,5 +1,11 @@
 # Test Report for Task Management System
 
+## Automatic test report
+
+- **For viewing the latest tests, please visit this link**
+
+- `https://beatrizsanssi.github.io/L2-Task-Manager/Report/test-report.html`
+
 | Test Case | What is Being Tested |  Result | Date Conducted | Result Image |
 |-----------|----------------------|---------|----------------|--------------|
 | **1**     | Create a task and assign it to a student    | Passed | 2024-09-26     | ![Task Created and Assigned To Student](./Test/ReportPictures/newTaskCreatedAndAssigned.png)                  |
