@@ -6,7 +6,7 @@
  * @author Beatriz Sanssi <bs222eh@student.lnu.se>
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NotificationSystem = exports.Category = exports.User = exports.Task = exports.TaskManager = void 0;
+exports.Grade = exports.NotificationSystem = exports.Category = exports.User = exports.Task = exports.TaskManager = void 0;
 var TaskManager_1 = require("./TaskManager");
 Object.defineProperty(exports, "TaskManager", { enumerable: true, get: function () { return TaskManager_1.TaskManager; } });
 var Task_1 = require("./Task");
@@ -17,4 +17,6 @@ var Category_1 = require("./Category");
 Object.defineProperty(exports, "Category", { enumerable: true, get: function () { return Category_1.Category; } });
 var NotificationSystem_1 = require("./NotificationSystem");
 Object.defineProperty(exports, "NotificationSystem", { enumerable: true, get: function () { return NotificationSystem_1.NotificationSystem; } });
+var Grade_1 = require("./Grade");
+Object.defineProperty(exports, "Grade", { enumerable: true, get: function () { return Grade_1.Grade; } });
 //# sourceMappingURL=index.js.map
